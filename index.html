@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Who Threw It? · Nithila & Seyon</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<title>Family சண்டை · Nithila, Joshitha & Seyon</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Baloo+Thambi+2:wght@600;800&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#2b2140;--sun:#ffcf33;--pink:#ff5fa2}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
-body{font-family:'Baloo 2','Comic Sans MS','Trebuchet MS',sans-serif;color:var(--ink);background:#20163b;-webkit-tap-highlight-color:transparent}
+body{font-family:'Baloo 2','Baloo Thambi 2','Comic Sans MS','Trebuchet MS',sans-serif;color:var(--ink);background:#20163b;-webkit-tap-highlight-color:transparent}
 .screen{display:none;min-height:100vh;padding:18px 14px 30px;flex-direction:column;align-items:center}
 .screen.on{display:flex}
 #title{background:radial-gradient(circle at 50% 12%,#ffe08a 0,#ff9a62 38%,#8a3fe6 100%);justify-content:center;text-align:center}
@@ -94,7 +94,19 @@ h2{color:#fff;font-size:clamp(28px,5.5vw,44px);margin:6px 0 14px;text-shadow:0 3
 @keyframes flo{from{transform:translate(-60px,10px) rotate(-20deg)}to{transform:translate(60px,-30px) rotate(25deg)}}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#2b2140;color:#fff;padding:10px 18px;border-radius:14px;font-weight:700;z-index:60;opacity:0;transition:opacity .3s;pointer-events:none;max-width:92%;text-align:center}
 .toast.on{opacity:1}
-.titleArt{width:min(460px,92vw);margin:0 auto -6px;display:block}
+.tamil{font-family:'Baloo Thambi 2','Baloo 2',sans-serif}
+.avs{grid-template-columns:repeat(3,minmax(0,1fr));max-width:760px;gap:12px}
+.avcard{position:relative;background:#fff;border:4px solid transparent;border-radius:24px;padding:10px 6px 12px;font:inherit;color:inherit;cursor:pointer;box-shadow:0 7px 0 rgba(0,0,0,.2);transition:transform .15s;text-align:center}
+.avcard:hover{transform:translateY(-4px)}
+.avcard.on{border-color:var(--c);box-shadow:0 0 0 4px rgba(255,255,255,.6),0 7px 0 rgba(0,0,0,.2);transform:translateY(-4px)}
+.avcard svg{width:100%;height:auto;max-height:230px;display:block}
+.avcard b{display:block;font-size:clamp(18px,4vw,26px);color:var(--c);line-height:1.1}
+.avcard span{font-size:14px;color:#6b5f86}
+.avcard .badge{position:absolute;top:8px;left:50%;transform:translateX(-50%);background:var(--c);color:#fff;font-weight:800;font-size:14px;padding:2px 10px;border-radius:99px;white-space:nowrap}
+.ptip{color:#fff;font-weight:700;text-align:center;font-size:17px;margin-top:12px;max-width:760px;line-height:1.35}
+.pbar{background:rgba(255,255,255,.95);border-radius:99px;padding:6px 8px 6px 16px;font-weight:800;font-size:17px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 0 10px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.pbar button{font:inherit;font-weight:800;font-size:14px;border:0;border-radius:99px;background:#7c4dff;color:#fff;padding:5px 12px;cursor:pointer}
+.titleArt{width:min(520px,94vw);margin:0 auto -6px;display:block}
 /* ---- menu ---- */
 .modes{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:760px;margin:16px 0}
 .mcard{background:#fff;border:0;border-radius:24px;padding:18px 20px;font:inherit;color:inherit;cursor:pointer;box-shadow:0 7px 0 rgba(0,0,0,.2);text-align:left;transition:transform .15s}
@@ -150,7 +162,7 @@ h2{color:#fff;font-size:clamp(28px,5.5vw,44px);margin:6px 0 14px;text-shadow:0 3
 .ti{font-size:17px;line-height:1;transform:translateY(-50%);height:0;overflow:visible}
 .ti:last-child{transform:translateY(-50%)}
 .mk{position:absolute;font-size:15px;transition:top .2s;transform:translateY(-50%);z-index:2}
-#mk-Nithila{left:-3px}#mk-Seyon{right:-3px}
+#mk-p0{left:-3px}#mk-p1{right:-3px}
 .rbanner{position:absolute;left:50%;top:52px;transform:translateX(-50%);background:#fff;padding:5px 16px;border-radius:999px;font-weight:800;font-size:clamp(14px,2.4vw,22px);box-shadow:0 4px 0 rgba(0,0,0,.25);white-space:nowrap;transition:opacity .5s;pointer-events:none;z-index:10}
 .countdown{position:absolute;inset:0;background:rgba(20,10,40,.78);display:none;align-items:center;justify-content:center;color:#fff;text-align:center;font-weight:800;z-index:20;padding:20px}
 .countdown.on{display:flex}
@@ -210,24 +222,34 @@ h2{color:#fff;font-size:clamp(28px,5.5vw,44px);margin:6px 0 14px;text-shadow:0 3
 
 <!-- TITLE -->
 <section class="screen on" id="title">
-  <svg class="titleArt" id="titleArt" viewBox="0 0 460 270"></svg>
-  <h1>NITHILA & SEYON</h1>
-  <div class="tag">Family Fun Games 🏠</div>
+  <svg class="titleArt" id="titleArt" viewBox="0 0 520 270"></svg>
+  <h1 class="tamil">Family சண்டை</h1>
+  <div class="tag">👧 Nithila · 👧🏽 Joshitha · 👦 Seyon: Family Fun Games 🏠</div>
   <div class="grid modes">
-    <button class="mcard" onclick="SFX.click();go('pick')"><div class="e">🕵️</div><b>Who Threw It?</b><span>For Amma, Appa, Paati &amp; Thatha: walk in, look for clues and catch the kid who threw it!</span></button>
-    <button class="mcard" onclick="SFX.click();go('raceMenu')"><div class="e">🏁</div><b>Race Day</b><span>Split screen, two players: Nithila vs Seyon! School rush, clean-up, Diwali morning and bedtime races.</span></button>
-    <button class="mcard" onclick="SFX.click();go('motoMenu')"><div class="e">🏎️</div><b>Turbo Racers</b><span>Car, superbike, auto rickshaw &amp; go-kart street racing! Split screen, Nithila vs Seyon, with nitro and traffic.</span></button>
-    <button class="mcard" onclick="SFX.click();go('chaseMenu')"><div class="e">🧟</div><b>Monster Chase</b><span>Run, cycle and swim to the finish before the Zombie, Tok Tok Kattai, Kadal Bootham or Bloop catches you!</span></button>
+    <button class="mcard" onclick="SFX.click();openPlayers('pick')"><div class="e">🕵️</div><b>Who Threw It?</b><span>For Amma, Appa, Paati &amp; Thatha: walk in, look for clues and catch the kid who threw it!</span></button>
+    <button class="mcard" onclick="SFX.click();openPlayers('raceMenu')"><div class="e">🏁</div><b>Race Day</b><span>Split screen, pick any two kids! School rush, clean-up, Diwali morning and bedtime races.</span></button>
+    <button class="mcard" onclick="SFX.click();openPlayers('motoMenu')"><div class="e">🏎️</div><b>Turbo Racers</b><span>Car, superbike, auto rickshaw &amp; go-kart street racing! Split screen, any two kids, with nitro and traffic.</span></button>
+    <button class="mcard" onclick="SFX.click();openPlayers('chaseMenu')"><div class="e">🧟</div><b>Monster Chase</b><span>Run, cycle and swim to the finish before the Zombie, Tok Tok Kattai, Kadal Bootham or Bloop catches you!</span></button>
   </div>
+</section>
+
+<!-- PICK PLAYERS -->
+<section class="screen" id="players">
+  <h2>Who is playing? 🎮</h2>
+  <div class="tag" style="margin:-6px 0 12px">Tap two kids. First tap = <b>Player 1</b>, second tap = <b>Player 2</b></div>
+  <div class="grid avs" id="avGrid"></div>
+  <div class="ptip" id="pTip"></div>
+  <div class="row" style="margin-top:14px"><button class="btn ghost sm" onclick="go('title')">← Home</button><button class="btn big" id="pGo" onclick="playersGo()">Let's go ▶</button></div>
 </section>
 
 <!-- PICK DETECTIVE -->
 <section class="screen" id="pick">
   <h2>🕵️ Who Threw It?</h2>
+  <div id="wPbar"></div>
   <div class="how">
     <b>How to play</b>
     <ol>
-      <li><b>Nithila</b> (8) and <b>Seyon</b> (3) are having a throwing war 💥</li>
+      <li>Two kids (you picked them!) are having a throwing war 💥</li>
       <li>The moment a grown-up walks in, they freeze and watch TV like little angels 😇</li>
       <li>Tap the 🔍 spots to find clues. You only get a few magnifiers, and some clues are fake!</li>
       <li>Point at the kid who threw the <b>LAST</b> one. Fewer magnifiers used = more points ⭐</li>
@@ -242,11 +264,12 @@ h2{color:#fff;font-size:clamp(28px,5.5vw,44px);margin:6px 0 14px;text-shadow:0 3
 <!-- RACE MENU -->
 <section class="screen" id="raceMenu">
   <h2>🏁 Race Day! Who finishes first?</h2>
+  <div id="rPbar"></div>
   <div class="how" style="max-width:760px">
     <b>How to play</b>
     <ol>
-      <li>The screen splits in two: <b>👧 Nithila on the left</b>, <b>👦 Seyon on the right</b> (top and bottom on an upright phone).</li>
-      <li>Tap your own big button as fast as you can to finish each job. Laptop keys: <b>A S D</b> for Nithila, <b>J K L</b> for Seyon.</li>
+      <li>The screen splits in two: <b>Player 1 on the left</b>, <b>Player 2 on the right</b> (top and bottom on an upright phone).</li>
+      <li>Tap your own big button as fast as you can to finish each job. Laptop keys: <b>A S D</b> for Player 1, <b>J K L</b> for Player 2.</li>
       <li>Watch out for surprises! Some need fast tapping, some need waiting, and some need you to pick the right thing.</li>
       <li>First to finish the last job wins! 🏆</li>
     </ol>
@@ -266,9 +289,9 @@ h2{color:#fff;font-size:clamp(28px,5.5vw,44px);margin:6px 0 14px;text-shadow:0 3
     <button class="icon snd" title="Sound" onclick="toggleSound()">🔊</button>
   </div>
   <div class="arena">
-    <div class="half" id="half-Nithila"></div>
+    <div class="half" id="half-p0"></div>
     <div class="mid" id="mid"></div>
-    <div class="half" id="half-Seyon"></div>
+    <div class="half" id="half-p1"></div>
   </div>
   <div class="rbanner" id="rbanner" style="opacity:0"></div>
   <div class="countdown" id="cd"></div>
@@ -299,12 +322,12 @@ h2{color:#fff;font-size:clamp(28px,5.5vw,44px);margin:6px 0 14px;text-shadow:0 3
   </div>
   <div class="q" id="q"></div>
   <div class="row">
-    <button class="btn ghost sm" id="askS" onclick="askSeyon()">🗣️ Ask Seyon</button>
-    <button class="btn ghost sm" id="askT" onclick="askNithila()">🗣️ Ask Nithila</button>
+    <button class="btn ghost sm" id="ask0" onclick="ask(0)"></button>
+    <button class="btn ghost sm" id="ask1" onclick="ask(1)"></button>
   </div>
   <div class="row" style="margin-top:12px">
-    <button class="btn pink" id="accT" onclick="accuse('Nithila')">👉 NITHILA did it!</button>
-    <button class="btn purple" id="accS" onclick="accuse('Seyon')">👉 SEYON did it!</button>
+    <button class="btn pink" id="acc0" onclick="accuse(PL[0])"></button>
+    <button class="btn purple" id="acc1" onclick="accuse(PL[1])"></button>
   </div>
   <div class="journal" id="journal"></div>
 </section>
@@ -312,12 +335,13 @@ h2{color:#fff;font-size:clamp(28px,5.5vw,44px);margin:6px 0 14px;text-shadow:0 3
 <!-- TURBO RACERS MENU -->
 <section class="screen" id="motoMenu">
   <h2 class="neon">🏎️ TURBO RACERS</h2>
-  <div class="tag" style="margin:-6px 0 8px">Nithila vs Seyon · split-screen street racing</div>
+  <div class="tag" style="margin:-6px 0 8px">Split-screen street racing</div>
+  <div id="mPbar"></div>
   <div class="how" style="max-width:780px">
     <b>How to play</b>
     <ol>
       <li>Pick your ride: sports car, superbike, Chennai auto rickshaw or go-kart.</li>
-      <li>Your ride speeds up by itself, so just <b>steer</b>! 👧 Nithila: <b>A / D</b> steer, <b>W</b> nitro 🔥, <b>S</b> horn 📯. 👦 Seyon: <b>← / →</b> steer, <b>↑</b> nitro, <b>↓</b> horn. On a phone or tablet, use the ◀ ▶ 🔥 📯 buttons.</li>
+      <li>Your ride speeds up by itself, so just <b>steer</b>! Player 1: <b>A / D</b> steer, <b>W</b> nitro 🔥, <b>S</b> horn 📯. Player 2: <b>← / →</b> steer, <b>↑</b> nitro, <b>↓</b> horn. On a phone or tablet, use the ◀ ▶ 🔥 📯 buttons.</li>
       <li>Grab 🪙 coins and ⚡ nitro cans. Stay on the road and don't bonk into buses, autos or cows!</li>
       <li>📯 Honk to make traffic move aside (and to tease your opponent 😝). First across the finish line after 2 laps wins! 🏁</li>
     </ol>
@@ -338,8 +362,8 @@ h2{color:#fff;font-size:clamp(28px,5.5vw,44px);margin:6px 0 14px;text-shadow:0 3
     <button class="icon snd" title="Sound" onclick="toggleSound()">🔊</button>
   </div>
   <div class="marena">
-    <div class="mhalf" id="mh-Nithila" style="--c:#ff3d8b"><canvas id="cv-Nithila"></canvas><div class="mctl" id="ctl-Nithila"></div></div>
-    <div class="mhalf" id="mh-Seyon" style="--c:#2f7bff"><canvas id="cv-Seyon"></canvas><div class="mctl" id="ctl-Seyon"></div></div>
+    <div class="mhalf" id="mh-p0"><canvas id="cv-p0"></canvas><div class="mctl" id="ctl-p0"></div></div>
+    <div class="mhalf" id="mh-p1"><canvas id="cv-p1"></canvas><div class="mctl" id="ctl-p1"></div></div>
   </div>
   <div class="countdown" id="mcd"></div>
 </section>
@@ -347,12 +371,13 @@ h2{color:#fff;font-size:clamp(28px,5.5vw,44px);margin:6px 0 14px;text-shadow:0 3
 <!-- MONSTER CHASE MENU -->
 <section class="screen" id="chaseMenu">
   <h2 class="spooky">🧟 MONSTER CHASE 🐋</h2>
-  <div class="tag" style="margin:-6px 0 8px">Nithila vs Seyon · first to the finish wins!</div>
+  <div class="tag" style="margin:-6px 0 8px">First to the finish wins!</div>
+  <div id="cPbar"></div>
   <div class="how" style="max-width:780px">
     <b>How to play</b>
     <ol>
       <li>A silly monster is chasing each of you! Amma &amp; Appa are waiting at the <b>finish line</b>, and monsters are scared of Amma 😄</li>
-      <li><b>Tap RUN</b> again and again to go fast. Tap <b>JUMP</b> to hop over rocks, logs and jellyfish. 👧 Nithila: <b>A</b> or <b>D</b> to run, <b>W</b> to jump. 👦 Seyon: <b>←</b> or <b>→</b> to run, <b>↑</b> to jump.</li>
+      <li><b>Tap RUN</b> again and again to go fast. Tap <b>JUMP</b> to hop over rocks, logs and jellyfish. Player 1: <b>A</b> or <b>D</b> to run, <b>W</b> to jump. Player 2: <b>←</b> or <b>→</b> to run, <b>↑</b> to jump.</li>
       <li>Grab ⭐ stars for super speed. If the monster catches you, <b>tap RUN super fast to wriggle free!</b> 💪</li>
       <li>First one across the finish line wins. Get caught with no wriggles left and you're out! 🏁</li>
     </ol>
@@ -372,8 +397,8 @@ h2{color:#fff;font-size:clamp(28px,5.5vw,44px);margin:6px 0 14px;text-shadow:0 3
     <button class="icon snd" title="Sound" onclick="toggleSound()">🔊</button>
   </div>
   <div class="carena">
-    <div class="clane" id="cl-Nithila" style="--c:#ff3d8b"><canvas id="cc-Nithila"></canvas><div class="cctl" id="cctl-Nithila"></div></div>
-    <div class="clane" id="cl-Seyon" style="--c:#2f7bff"><canvas id="cc-Seyon"></canvas><div class="cctl" id="cctl-Seyon"></div></div>
+    <div class="clane" id="cl-p0"><canvas id="cc-p0"></canvas><div class="cctl" id="cctl-p0"></div></div>
+    <div class="clane" id="cl-p1"><canvas id="cc-p1"></canvas><div class="cctl" id="cctl-p1"></div></div>
   </div>
   <div class="countdown" id="ccd"></div>
 </section>
@@ -387,8 +412,22 @@ const $=s=>document.querySelector(s);
 const rnd=a=>a[Math.floor(Math.random()*a.length)];
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
 const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-const other=k=>k==='Nithila'?'Seyon':'Nithila';
-const KIDS={Nithila:{s:1,he:'she',his:'her',him:'her'},Seyon:{s:.8,he:'he',his:'his',him:'him'}};
+/* ============ AVATARS ============ */
+const AV={
+ Nithila:{age:8,e:'👧',girl:true,hair:'braids',col:'#ff3d8b',col2:'#ff5fa2',pants:'#5a189a',shoe:'#ffd23f',s:1,he:'she',his:'her',him:'her',
+  school:{n:'Shree Niketan',l1:'SHREE NIKETAN',l2:'',c:'#c1121f',w:'#ffd166',ride:'van'},fit:{pj:'pajama',uni:'uniT',play:'frock',fest:'pavadai',party:'gown'}},
+ Joshitha:{age:6,e:'👧🏽',girl:true,hair:'puffs',col:'#12a594',col2:'#1fbfa9',pants:'#7b2cbf',shoe:'#ff6b9a',s:.9,he:'she',his:'her',him:'her',
+  school:{n:'Sunbeam School',l1:'SUNBEAM',l2:'SCHOOL',c:'#7b2cbf',w:'#e0c3fc',ride:'van'},fit:{pj:'pajamaJ',uni:'uniJ',play:'frockJ',fest:'pavadaiJ',party:'gownJ'}},
+ Seyon:{age:3,e:'👦',girl:false,hair:'curly',col:'#2f7bff',col2:'#3d8bff',pants:'#1d3557',shoe:'#ff9f1c',s:.8,he:'he',his:'his',him:'him',
+  school:{n:'Olive Public School',l1:'OLIVE PUBLIC',l2:'SCHOOL',c:'#556b2f',w:'#c5d89d',ride:'scooter'},fit:{pj:'onesie',uni:'uniS',play:'cape',fest:'veshti',party:'suit'}},
+};
+const AVK=Object.keys(AV),KIDS=AV;
+let PL=['Nithila','Seyon'];try{const s=JSON.parse(localStorage.getItem('ts_pl')||'null');if(s&&s.length===2&&s.every(k=>AV[k])&&s[0]!==s[1])PL=s}catch(e){}
+const other=k=>k===PL[0]?PL[1]:PL[0];
+const slot=k=>PL.indexOf(k), sid=k=>'p'+slot(k), lpan=k=>slot(k)===0?-.5:.5;
+const youngest=()=>AV[PL[0]].age<=AV[PL[1]].age?PL[0]:PL[1];
+const callOf=(k,o)=>AV[o].age>AV[k].age?(AV[o].girl?'Akka':'Anna'):o;
+const NM=k=>`${AV[k].e} ${k}`;
 const PARENTS=[
  {n:'Amma',e:'👩🏽',d:'Super-detective mom'},
  {n:'Appa',e:'👨🏽',d:'Pretends not to notice… notices everything'},
@@ -400,23 +439,23 @@ let BEST={};try{BEST=JSON.parse(localStorage.getItem('wti_best')||'{}')}catch(e)
 /* ============ THEMES ============ */
 const THEMES=[
  {id:'living',name:'Living Room',sub:'Diwali Cushion Clash',emoji:'🪔',col:'#e85d3a',obj:'cushion',objName:'cushion',objPlural:'cushions',
-  outfit:{Nithila:'pavadai',Seyon:'veshti'},dress:'Nithila: silk pattu pavadai with jasmine 🌼<br>Seyon: mini veshti & silk shirt',
+  outfit:{Nithila:'pavadai',Joshitha:'pavadaiJ',Seyon:'veshti'},dress:{Nithila:'silk pattu pavadai with jasmine 🌼',Joshitha:'orange-and-purple pattu pavadai 🪔',Seyon:'mini veshti & silk shirt'},
   vPos:[0,-176],vText:(V,T)=>`A cushion is sitting on ${V}'s head like a crown 👑 It flew in from ${T}'s side of the sofa!`,
   hText:(T)=>`${T}'s fingers are covered in cushion fluff. Fluffy fingers = guilty fingers!`},
  {id:'bedroom',name:'Bed Room',sub:'Bedtime Teddy Toss',emoji:'🧸',col:'#5a6fd6',obj:'teddy',objName:'teddy',objPlural:'teddies',
-  outfit:{Nithila:'pajama',Seyon:'onesie'},dress:'Nithila: starry purple pyjamas ⭐<br>Seyon: dinosaur onesie 🦖',
+  outfit:{Nithila:'pajama',Joshitha:'pajamaJ',Seyon:'onesie'},dress:{Nithila:'starry purple pyjamas ⭐',Joshitha:'pink star pyjamas 🌸',Seyon:'dinosaur onesie 🦖'},
   vPos:[0,-180],vText:(V,T)=>`A teddy bear is stuck on ${V}'s head! Teddies don't fly by themselves…`,
   hText:(T)=>`${T}'s hands have brown teddy fur on them. That teddy was thrown, not hugged!`},
  {id:'terrace',name:'Terrace',sub:'Water Balloon Summer',emoji:'🎈',col:'#1ea7e1',obj:'balloon',objName:'water balloon',objPlural:'water balloons',
-  outfit:{Nithila:'frock',Seyon:'cape'},dress:'Nithila: sunflower frock & sunglasses 🌻<br>Seyon: superhero cape & mask 🦸',
+  outfit:{Nithila:'frock',Joshitha:'frockJ',Seyon:'cape'},dress:{Nithila:'sunflower frock & sunglasses 🌻',Joshitha:'mint flower frock 🌼',Seyon:'superhero cape & mask 🦸'},
   vPos:[0,-150],vText:(V,T)=>`${V} is totally drenched! Drip… drip… drip… a water balloon went SPLASH on ${KIDS[V].him}!`,
   hText:(T)=>`${T}'s hands are dripping wet, and there's a bit of popped balloon stuck on a finger!`},
  {id:'road',name:'Road (Rainy Day)',sub:'Muddy Puddle War',emoji:'☔',col:'#4f6d7a',obj:'mudball',objName:'mud ball',objPlural:'mud balls',
-  outfit:{Nithila:'raincoat',Seyon:'frog'},dress:'Nithila: yellow raincoat & red boots ☔<br>Seyon: froggy raincoat & green boots 🐸',
+  outfit:{Nithila:'raincoat',Joshitha:'raincoatJ',Seyon:'frog'},dress:{Nithila:'yellow raincoat & red boots ☔',Joshitha:'pink raincoat & yellow boots 🌂',Seyon:'froggy raincoat & green boots 🐸'},
   vPos:[0,-88],vText:(V,T)=>`SPLAT! A fresh mud blob on ${V}'s raincoat and cheek. Still wet!`,
   hText:(T)=>`${T}'s hands are full of mud. Mud doesn't jump onto hands by itself!`},
  {id:'party',name:'Birthday Party',sub:'Cupcake Catastrophe',emoji:'🎂',col:'#e8459a',obj:'cupcake',objName:'cupcake',objPlural:'cupcakes',
-  outfit:{Nithila:'gown',Seyon:'suit'},dress:'Nithila: princess gown & tiara 👑<br>Seyon: tiny suit, bow tie & party hat 🎀',
+  outfit:{Nithila:'gown',Joshitha:'gownJ',Seyon:'suit'},dress:{Nithila:'princess gown & tiara 👑',Joshitha:'mermaid gown & tiara 🧜‍♀️',Seyon:'tiny suit, bow tie & party hat 🎀'},
   vPos:[0,-122],vText:(V,T)=>`${V} has cake cream on the nose and forehead! Somebody aimed a cupcake…`,
   hText:(T)=>`${T}'s fingers are sticky with cream and sprinkles. Yum… and guilty!`},
 ];
@@ -474,6 +513,12 @@ const OUT={
  suit:{top:'#1d3557',sleeve:'long',lower:'pants',pants:'#1d3557',shoe:'#111',bow:1,hat:1},
  towel:{top:'#f4f9ff',sleeve:'bare',lower:'coat',skirt:'#f4f9ff',boot:'#8d5a3b',towel:1},
  uniT:{top:'#ffffff',sleeve:'short',trim:'#1d3557',lower:'pinafore',skirt:'#1d3557',shoe:'#111',socks:1,bib:'#1d3557',tie:'#c1121f',ribbon:'#c1121f',badge:'#c1121f'},
+ pavadaiJ:{top:'#ff9f1c',sleeve:'short',trim:'#f5c518',lower:'pavadai',skirt:'#7b2cbf',border:'#f5c518',ribbon:'#ff5fa2',jasmine:1,bindi:1},
+ pajamaJ:{top:'#ff8fab',sleeve:'long',lower:'pants',pants:'#ff6f9a',shoe:'#ffffff',stars:1,ribbon:'#7b2cbf'},
+ frockJ:{top:'#7ee0d2',sleeve:'puff',lower:'frock',skirt:'#7ee0d2',shoe:'#ff5fa2',ribbon:'#ff5fa2'},
+ raincoatJ:{top:'#ff5fa2',sleeve:'long',lower:'coat',skirt:'#ff5fa2',boot:'#ffd60a',hood:'#ff5fa2',buttons:1},
+ gownJ:{top:'#12a594',sleeve:'puff',lower:'gown',skirt:'#9ff0e2',tiara:1,ribbon:'#12a594'},
+ uniJ:{top:'#ffffff',sleeve:'short',trim:'#7b2cbf',lower:'pinafore',skirt:'#7b2cbf',shoe:'#111',socks:1,bib:'#7b2cbf',tie:'#f5c518',ribbon:'#f5c518',badge:'#7b2cbf'},
  uniS:{top:'#c5d89d',sleeve:'short',trim:'#556b2f',lower:'shorts',pants:'#556b2f',shoe:'#111',socks:1,tie:'#556b2f',badge:'#556b2f'},
 };
 
@@ -537,8 +582,13 @@ function face(expr,inner){const dk='#1a1010';
   default:s+=big()+`<path d="M-8,-111 Q0,-104 8,-111" stroke="${dk}" stroke-width="2.5" fill="none"/>`}
  return s}
 
-function hair(girl,O){let s='';
- if(girl){
+function hair(st,O){let s='';const girl=st!=='curly';
+ if(st==='puffs'){
+  s+=`<path d="M-35,-126 Q-38,-168 0,-167 Q38,-168 35,-126 Q31,-146 16,-150 Q8,-142 0,-151 Q-8,-142 -16,-150 Q-31,-146 -35,-126 Z" fill="${HAIR}"/>`;
+  if(!O.hood&&!O.towel){const rc=O.ribbon||'#ff5fa2';for(const sx of [-1,1]){s+=`<circle cx="${sx*31}" cy="-166" r="17" fill="${HAIR}"/><circle cx="${sx*40}" cy="-176" r="9" fill="${HAIR}"/><circle cx="${sx*24}" cy="-178" r="9" fill="${HAIR}"/>`;
+   s+=`<ellipse cx="${sx*24}" cy="-152" rx="7" ry="4.5" fill="${rc}" transform="rotate(${sx*-30} ${sx*24} -152)"/>`}
+   s+=flower(-12,-160)}
+ }else if(girl){
   s+=`<path d="M-35,-126 Q-38,-168 0,-167 Q38,-168 35,-126 Q31,-146 16,-150 Q8,-142 0,-151 Q-8,-142 -16,-150 Q-31,-146 -35,-126 Z" fill="${HAIR}"/>`;
   if(!O.hood){
    for(const sx of [-1,1]){for(let i=0;i<6;i++)s+=`<ellipse cx="${sx*(32+i*1.8)}" cy="${-114+i*12}" rx="8.5" ry="8" fill="${HAIR}"/>`;
@@ -584,7 +634,7 @@ function marks(f,thid,inner,sides,objT){let m='';const outer=-inner;
  return m}
 
 function kidSVG(name,oid,o){
- const O=OUT[oid],inner=o.inner,outer=-inner,girl=name==='Nithila',f=o.flags||new Set(),behind=f.has('handBehind');
+ const O=OUT[oid],inner=o.inner,outer=-inner,girl=AV[name].girl,f=o.flags||new Set(),behind=f.has('handBehind');
  let b='';
  if(O.cape)b+=`<path d="M-24,-92 L24,-92 L54,44 Q0,56 -54,44 Z" fill="${O.cape}" stroke="#a51d2a" stroke-width="2"/>`;
  if(O.hood){
@@ -592,7 +642,7 @@ function kidSVG(name,oid,o){
   b+=`<circle cx="0" cy="-130" r="46" fill="${O.hood}" stroke="rgba(0,0,0,.18)" stroke-width="3"/>`;
   if(O.spikes){const r=Math.PI/180;for(let a=-160;a<=-20;a+=35){b+=`<path d="M${P2([Math.cos((a-13)*r)*44,-130+Math.sin((a-13)*r)*44])} L${P2([Math.cos(a*r)*62,-130+Math.sin(a*r)*62])} L${P2([Math.cos((a+13)*r)*44,-130+Math.sin((a+13)*r)*44])} Z" fill="${O.spikes}"/>`}}
  }
- if(girl&&!O.hood)b+=`<ellipse cx="0" cy="-133" rx="39" ry="39" fill="${HAIR}"/>`;
+ if(AV[name].hair==='braids'&&!O.hood)b+=`<ellipse cx="0" cy="-133" rx="39" ry="39" fill="${HAIR}"/>`;
  if(behind)b+=obj(o.objT,outer*48,-44,.5,25)+`<path d="M${outer*26},-86 L${outer*44},-62 L${outer*24},-46" fill="none" stroke="${O.sleeve==='long'?O.top:SKIN}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>`;
  b+=legs(O);
  b+=`<rect x="-30" y="-96" width="60" height="100" rx="20" fill="${O.top}"/>`;
@@ -603,7 +653,7 @@ function kidSVG(name,oid,o){
  b+=`<circle cx="0" cy="-128" r="34" fill="${SKIN}"/>`;
  if(O.mask)b+=`<path d="M-31,-137 Q0,-147 31,-137 L29,-118 Q14,-114 0,-122 Q-14,-114 -29,-118 Z" fill="${O.mask}"/>`;
  b+=face(o.expr||'innocent',inner);
- b+=hair(girl,O);
+ b+=hair(AV[name].hair,O);
  if(O.hood)b+=`<path d="M-36,-110 A40,40 0 1 1 36,-110" fill="none" stroke="${O.hood}" stroke-width="7"/>`;
  b+=acc(girl,O);
  b+=marks(f,o.theme,inner,[-1,1].filter(sx=>!(behind&&sx===outer)),o.objT);
@@ -640,7 +690,7 @@ const BG={
  bedroom:()=>`<rect width="800" height="340" fill="#b9c6f3"/><rect width="800" height="340" fill="url(#stars)"/><rect y="330" width="800" height="170" fill="#6b5aa0"/><ellipse cx="400" cy="450" rx="330" ry="42" fill="#ffb4d0" opacity=".8"/>
   <rect x="45" y="55" width="160" height="150" rx="6" fill="#fff"/><rect x="55" y="65" width="140" height="130" fill="#14214f"/><circle cx="150" cy="105" r="22" fill="#fff3b0"/><circle cx="161" cy="98" r="20" fill="#14214f"/>${[[75,85],[100,160],[170,170],[85,130]].map(([x,y])=>`<text x="${x}" y="${y}" font-size="10" fill="#fff">★</text>`).join('')}<path d="M40,55 Q60,130 46,210 L30,210 L30,55Z M210,55 Q190,130 204,210 L220,210 L220,55Z" fill="#ff8fb1"/>
   ${door(660,95,110,240,'#7d5a3c','#a77b52')}
-  <text x="400" y="190" text-anchor="middle" font-size="30" font-weight="800" fill="#7c4dff" font-family="Baloo 2,sans-serif">NITHILA <tspan fill="#ff5fa2">❤</tspan> SEYON</text>
+  <text x="400" y="190" text-anchor="middle" font-size="26" font-weight="800" fill="#7c4dff" font-family="Baloo 2,sans-serif">NITHILA <tspan fill="#ff5fa2">❤</tspan> JOSHITHA <tspan fill="#ff5fa2">❤</tspan> SEYON</text>
   <rect x="78" y="300" width="58" height="90" rx="6" fill="#a86b3c"/><circle cx="107" cy="268" r="44" fill="url(#glow)"/><path d="M88,290 L126,290 L118,262 L96,262Z" fill="#ffe08a"/><rect x="104" y="290" width="6" height="12" fill="#555"/>
   <rect x="170" y="212" width="460" height="150" rx="26" fill="#a86b3c"/><rect x="188" y="228" width="424" height="60" rx="18" fill="#c48552"/>
   <ellipse cx="275" cy="305" rx="72" ry="24" fill="#fff"/><ellipse cx="525" cy="305" rx="72" ry="24" fill="#fff"/>
@@ -707,7 +757,7 @@ function makeClues(){
  for(let t=0;t<120;t++){
   const first=rnd(['vMark','tHands']);const chosen=[first];
   for(const k of shuffle(Object.keys(TRUE))){if(chosen.length>=nTrue)break;if(chosen.includes(k))continue;if((k==='angry'&&chosen.includes('vMark'))||(k==='vMark'&&chosen.includes('angry')))continue;chosen.push(k)}
-  const list=[...chosen.map(k=>({type:k,role:TRUE[k].role,kid:TRUE[k].role==='thrower'?S.thrower:S.victim})),...shuffle(Object.keys(DECOY)).slice(0,nDec).map(k=>({type:k,role:'decoy',kid:rnd(['Nithila','Seyon'])}))];
+  const list=[...chosen.map(k=>({type:k,role:TRUE[k].role,kid:TRUE[k].role==='thrower'?S.thrower:S.victim})),...shuffle(Object.keys(DECOY)).slice(0,nDec).map(k=>({type:k,role:'decoy',kid:rnd(PL)}))];
   list.forEach(c=>{const p=pos(c.kid),lp=(TRUE[c.type]||DECOY[c.type]).pos(p.inner);c.ax=p.x+lp[0]*p.s;c.ay=p.y+lp[1]*p.s;c.revealed=false;
    c.text=c.role==='decoy'?DECOY[c.type].text(c.kid):TRUE[c.type].text(S.thrower,S.victim)});
   let ok=true;for(let i=0;i<list.length&&ok;i++)for(let j=i+1;j<list.length;j++)if(Math.hypot(list[i].ax-list[j].ax,list[i].ay-list[j].ay)<34){ok=false;break}
@@ -724,7 +774,7 @@ function exprFor(k,f){
 function render(fast){
  const T=th(),chaos=S.phase==='chaos';let h=DEFS+BG[T.id]();
  if(chaos)h+=`<rect width="800" height="500" fill="#0b0820" opacity=".55"/>`;
- ['Nithila','Seyon'].forEach((k,i)=>{const p=pos(k),f=flagsFor(k);h+=kidSVG(k,T.outfit[k],{...p,flags:f,expr:exprFor(k,f),theme:T.id,objT:T.obj,sil:chaos,cls:chaos?('bounce'+(i?' b2':'')+(fast?' fast':'')):''})});
+ PL.forEach((k,i)=>{const p=pos(k),f=flagsFor(k);h+=kidSVG(k,T.outfit[k],{...p,flags:f,expr:exprFor(k,f),theme:T.id,objT:T.obj,sil:chaos,cls:chaos?('bounce'+(i?' b2':'')+(fast?' fast':'')):''})});
  h+=tvFG(T.id,!chaos);
  if(S.phase==='investigate')S.clues.forEach((c,i)=>{if(!c.revealed)h+=`<g class="spot" data-i="${i}" transform="translate(${c.ax.toFixed(1)},${c.ay.toFixed(1)})"><circle r="30" fill="transparent"/><circle class="ring" r="21"/><text y="7" text-anchor="middle" font-size="20">🔍</text></g>`});
  h+=`<g id="fly"></g>`;
@@ -747,26 +797,38 @@ function throwAnim(from,to){return new Promise(res=>{
  (function step(now){const g=$('#fly');if(!g){res();return}const t=Math.min(1,(now-t0)/dur);
   g.innerHTML=obj(o,x0+(x1-x0)*t,y0+(y1-y0)*t-120*Math.sin(Math.PI*t),1.1,t*560);
   if(t<1)requestAnimationFrame(step);else{g.innerHTML='';SFX.thud(panOf(to));
-   const words=to==='Seyon'?['Akkaaa! 😭','Hehe again!','BOINK!','POW!','Aiyyo!']:['SEYON!! 😤','That\'s it!','WHAM!','POW!','Aiyyo!'];
+   const cw=callOf(to,from).toUpperCase(),words=AV[to].age<4?[cw+'AAA! 😭','Hehe again!','BOINK!','POW!','Aiyyo!']:[cw+'!! 😤','That\'s it!','WHAM!','POW!','Aiyyo!'];
    pow(x1,y1-30,rnd(words));res()}})(t0)})}
 
 /* ============ GAME FLOW ============ */
-function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));window.scrollTo(0,0);if(id==='themes')buildThemes();if(id==='raceMenu')buildRaceMenu();if(id==='motoMenu')buildMotoMenu();if(id==='chaseMenu')buildChaseMenu()}
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id));window.scrollTo(0,0);if(id==='players')buildPlayers();if(id==='pick')$('#wPbar').innerHTML=pbar('pick');if(id==='themes')buildThemes();if(id==='raceMenu')buildRaceMenu();if(id==='motoMenu')buildMotoMenu();if(id==='chaseMenu')buildChaseMenu()}
+let PICK=[],PNEXT='title';
+function openPlayers(next){PNEXT=next;PICK=[...PL];go('players')}
+function buildPlayers(){
+ $('#avGrid').innerHTML=AVK.map(k=>{const i=PICK.indexOf(k),A=AV[k];return `<button class="avcard ${i>=0?'on':''}" style="--c:${A.col}" onclick="togglePick('${k}')">${i>=0?`<span class="badge">Player ${i+1}</span>`:''}<svg viewBox="-75 -215 150 285">${kidSVG(k,A.fit.play,{x:0,y:0,s:A.s,inner:1,expr:i>=0?'laugh':'happy',theme:'',objT:'cushion'})}</svg><b>${k}</b><span>${A.age} years old</span></button>`}).join('');
+ $('#pGo').disabled=PICK.length!==2;
+ $('#pTip').innerHTML=PICK.length===2?`${NM(PICK[0])} is <b>Player 1</b> (left / top · keys A D W S)<br>${NM(PICK[1])} is <b>Player 2</b> (right / bottom · arrow keys)`:`Pick ${2-PICK.length} more kid${PICK.length?'':'s'} 👆`}
+function togglePick(k){SFX.click();const i=PICK.indexOf(k);if(i>=0)PICK.splice(i,1);else{if(PICK.length>=2)PICK.shift();PICK.push(k)}buildPlayers()}
+function playersGo(){if(PICK.length!==2)return;PL=[...PICK];try{localStorage.setItem('ts_pl',JSON.stringify(PL))}catch(e){}SFX.click();go(PNEXT)}
+function pbar(next){return `<div class="pbar"><span style="color:${AV[PL[0]].col}">${NM(PL[0])}</span> vs <span style="color:${AV[PL[1]].col}">${NM(PL[1])}</span><button onclick="openPlayers('${next}')">🔄 Change</button></div>`}
+const famScore=()=>'🏆 Family scoreboard: '+AVK.map(k=>`${AV[k].e} ${k} <b>${WINS[k]||0}</b>`).join(' · ');
 function buildParents(){$('#parentGrid').innerHTML=PARENTS.map(p=>`<button class="pcard" onclick="pickParent('${p.n}','${p.e}')"><div class="e">${p.e}</div><b>${p.n}</b><span>${p.d}</span></button>`).join('')}
 function pickParent(n,e){S.parent=n;S.pe=e;SFX.click();go('themes')}
-function buildThemes(){$('#themeGrid').innerHTML=THEMES.map((t,i)=>{const b=BEST[t.id]||0;return `<button class="tcard" onclick="startTheme(${i})"><div class="top" style="background:${t.col}"><span class="e">${t.emoji}</span><span><b>${t.name}</b><i>${t.sub}</i></span></div><div class="body">${t.dress}<div class="stars">${'⭐'.repeat(b)}${'☆'.repeat(3-b)}</div></div></button>`}).join('')}
+function buildThemes(){$('#themeGrid').innerHTML=THEMES.map((t,i)=>{const b=BEST[t.id]||0;return `<button class="tcard" onclick="startTheme(${i})"><div class="top" style="background:${t.col}"><span class="e">${t.emoji}</span><span><b>${t.name}</b><i>${t.sub}</i></span></div><div class="body">${PL.map(k=>`<b>${k}:</b> ${t.dress[k]}`).join('<br>')}<div class="stars">${'⭐'.repeat(b)}${'☆'.repeat(3-b)}</div></div></button>`}).join('')}
 function startTheme(i){ac();SFX.click();S.theme=i;S.round=0;S.themeScore=0;S.correct=0;go('game');startRound()}
 function leaveGame(){S.runId++;S.phase='';closeSheet();$('#fx').innerHTML='';$('#blackout').classList.remove('on');go('themes')}
 function hud(){const T=th();$('#hudTitle').innerHTML=`${T.emoji} ${T.name}<small>${T.sub} · Detective ${S.pe} ${S.parent}</small>`;$('#hudRound').textContent=`Round ${S.round+1}/3`;
  const tot=[3,2,2][S.round];$('#hudMags').innerHTML='🔍'.repeat(S.mags)+`<span style="opacity:.25">${'🔍'.repeat(Math.max(0,tot-S.mags))}</span>`;$('#hudScore').textContent=`⭐ ${S.score}`}
-function setControls(on){['#accT','#accS'].forEach(s=>$(s).disabled=!on);$('#askS').disabled=!on||S.askedS;$('#askT').disabled=!on||S.askedT}
+function setControls(on){const a=S.asked||{};PL.forEach((k,i)=>{$('#acc'+i).disabled=!on;$('#ask'+i).disabled=!on||!!a[k]})}
 function setQ(t){$('#q').innerHTML=t}
 function journal(t){const d=document.createElement('div');d.innerHTML=t;$('#journal').appendChild(d)}
 
 function startRound(){
  closeSheet();$('#fx').innerHTML='';$('#journal').innerHTML='';
- S.thrower=Math.random()<.5?'Nithila':'Seyon';S.victim=other(S.thrower);S.leftKid=Math.random()<.5?'Nithila':'Seyon';
- S.mags=[3,2,2][S.round];S.askedS=S.askedT=false;S.clues=makeClues();hud();runChaos()}
+ S.thrower=rnd(PL);S.victim=other(S.thrower);S.leftKid=rnd(PL);
+ S.mags=[3,2,2][S.round];S.asked={};S.clues=makeClues();
+ PL.forEach((k,i)=>{$('#ask'+i).textContent='🗣️ Ask '+k;const b=$('#acc'+i);b.textContent=`👉 ${k.toUpperCase()} did it!`;b.style.background=AV[k].col;b.style.boxShadow='0 5px 0 '+shade(AV[k].col,-.3);b.style.color='#fff'});
+ hud();runChaos()}
 
 async function runChaos(){
  const id=++S.runId,alive=()=>id===S.runId,T=th();
@@ -774,7 +836,7 @@ async function runChaos(){
  setQ(`🔊 Uh-oh… strange noises from the ${T.name}!`);banner(`Meanwhile, in the ${T.name}… 🙈`);
  await wait(1000);if(!alive())return;
  const n=4+S.round;
- for(let i=0;i<n;i++){const from=Math.random()<.5?'Nithila':'Seyon';await throwAnim(from,other(from));if(!alive())return;await wait(140+Math.random()*260);if(!alive())return}
+ for(let i=0;i<n;i++){const from=rnd(PL);await throwAnim(from,other(from));if(!alive())return;await wait(140+Math.random()*260);if(!alive())return}
  render(true);banner(`👣 Footsteps!! ${S.parent} is coming!`);setQ(`👣 ${S.pe} ${S.parent} is coming…`);SFX.step();
  await wait(1400);if(!alive())return;
  const bo=$('#blackout');bo.textContent='';bo.classList.add('on');
@@ -791,25 +853,24 @@ function inspect(i){const c=S.clues[i];if(!c||c.revealed)return;
  bubble(c.ax,c.ay-26,'🔍 '+c.text,'clue',5200);journal('🔍 '+c.text);
  if(S.mags===0)setQ('🤔 No magnifiers left. Who did it?')}
 
-function askSeyon(){if(S.askedS||S.phase!=='investigate')return;S.askedS=true;setControls(true);const r=Math.random(),T=th();let l;
- if(S.thrower==='Seyon')l=r<.5?'Me! Me throw! Me strong boy! 💪':r<.8?'Akka did it! 🙈':'I want ice cream… 🍦';
- else l=r<.55?`Akka did it! Akka throw ${T.objName}! 😠`:r<.75?'Me? …Me no know! 🤔':'Where is my dino toy? 🦖';
- SFX.giggle();sayKid('Seyon',l);journal(`🗣️ Seyon (3) says: “${l}” — three-year-olds are not reliable witnesses!`)}
-function askNithila(){if(S.askedT||S.phase!=='investigate')return;S.askedT=true;setControls(true);const r=Math.random(),P=S.parent;let l;
- if(S.thrower==='Nithila')l=r<.35?`Not me, ${P}! It was… the wind! 🌬️`:r<.6?`I… I was just stretching my arm, ${P}! 😅`:`Seyon did it, ${P}! I'm innocent! 😇`;
- else l=r<.65?`Seyon did it, ${P}! I saw it with my own eyes! 👀`:`Not me, ${P}! I was watching TV the WHOLE time! 📺`;
- SFX.click();sayKid('Nithila',l);journal(`🗣️ Nithila (8) says: “${l}” — eight-year-olds make excellent lawyers…`)}
+const ASK={
+ Seyon:(g,o,P)=>{const r=Math.random(),a=callOf('Seyon',o);return g?(r<.5?'Me! Me throw! Me strong boy! 💪':r<.8?`${a} did it! 🙈`:'I want ice cream… 🍦'):(r<.55?`${a} did it! ${a} throw ${th().objName}! 😠`:r<.75?'Me? …Me no know! 🤔':'Where is my dino toy? 🦖')},
+ Nithila:(g,o,P)=>{const r=Math.random();return g?(r<.35?`Not me, ${P}! It was… the wind! 🌬️`:r<.6?`I… I was just stretching my arm, ${P}! 😅`:`${o} did it, ${P}! I'm innocent! 😇`):(r<.65?`${o} did it, ${P}! I saw it with my own eyes! 👀`:`Not me, ${P}! I was watching TV the WHOLE time! 📺`)},
+ Joshitha:(g,o,P)=>{const r=Math.random(),a=callOf('Joshitha',o);return g?(r<.35?`Me?! I'm too cute to throw things, ${P}! 🥰`:r<.65?'I was just… practising my dance moves! 💃':`${a} did it! Pinky promise! 🤙`):(r<.6?`${a} did it, ${P}! Look at my honest face! 😇`:'I was drawing a rainbow the WHOLE time! 🌈')}};
+const ASKNOTE={Seyon:'three-year-olds are not reliable witnesses!',Nithila:'eight-year-olds make excellent lawyers…',Joshitha:'six-year-olds are very dramatic witnesses 🎭'};
+function ask(i){const k=PL[i];if(!S.asked||S.asked[k]||S.phase!=='investigate')return;S.asked[k]=true;setControls(true);
+ const l=ASK[k](S.thrower===k,other(k),S.parent);(AV[k].age<4?SFX.giggle:SFX.click)();sayKid(k,l);journal(`🗣️ ${k} (${AV[k].age}) says: “${l}” — ${ASKNOTE[k]}`)}
 
 const LINES={
- caught:{Nithila:P=>rnd([`Okay okay! But HE started it first, ${P}! 😤`,`Fine… it was me. But it was a really good throw, right? 😁`]),Seyon:P=>rnd(['Hehehe! Me throw! Me champion! 🏆',`Sorry ${P}… *gives you a sticky hug* 🤗`])},
- innocent:{Nithila:P=>`WHAT?! I was being a good girl, ${P}! 😭`,Seyon:()=>'Not meeee! 😭 Seyon good boy!'},
- gloat:{Nithila:P=>`Hehe… ${P} didn't catch me! 🤫`,Seyon:()=>'Hehe! Me hide good! 🙈'}};
+ caught:{Nithila:(P,o)=>rnd([`Okay okay! But ${o} started it first, ${P}! 😤`,`Fine… it was me. But it was a really good throw, right? 😁`]),Joshitha:(P,o)=>rnd(['Okayyy it was me… but I said sorry in my heart! 💖','It slipped! My hand was doing a dance move! 💃']),Seyon:P=>rnd(['Hehehe! Me throw! Me champion! 🏆',`Sorry ${P}… *gives you a sticky hug* 🤗`])},
+ innocent:{Nithila:P=>`WHAT?! I was being a good girl, ${P}! 😭`,Joshitha:P=>`NOOO! I'm innocent, ${P}! I'm calling Paati! 😭📞`,Seyon:()=>'Not meeee! 😭 Seyon good boy!'},
+ gloat:{Nithila:P=>`Hehe… ${P} didn't catch me! 🤫`,Joshitha:()=>'Tee-hee! I\'m a secret ninja! 🥷',Seyon:()=>'Hehe! Me hide good! 🙈'}};
 
 function accuse(k){if(S.phase!=='investigate')return;S.phase='verdict';setControls(false);
  const ok=k===S.thrower,pts=ok?100+25*S.mags:0;S.themeScore+=pts;S.score+=pts;if(ok)S.correct++;
  S.vexpr=ok?{[S.thrower]:'laugh',[S.victim]:'happy'}:{[k]:'cry',[S.thrower]:'laugh'};
  render();hud();$('#fx').innerHTML='';
- if(ok){SFX.win();sayKid(S.thrower,LINES.caught[S.thrower](S.parent),5000)}
+ if(ok){SFX.win();sayKid(S.thrower,LINES.caught[S.thrower](S.parent,S.victim),5000)}
  else{SFX.lose();sayKid(k,LINES.innocent[k](S.parent),5000);setTimeout(()=>{SFX.giggle();sayKid(S.thrower,LINES.gloat[S.thrower](S.parent),4000)},900)}
  setTimeout(()=>showVerdict(ok,pts),1900)}
 
@@ -829,34 +890,34 @@ function showVerdict(ok,pts){
 function closeSheet(){$('#sheet').classList.remove('on')}
 
 function peace(n){closeSheet();S.phase='peace';render();$('#fx').innerHTML='';SFX.love();hearts();const T=th(),P=S.parent;
- const msg=[[`Sorry Seyon! ❤️`,`Sorry Akka! 🤗`],[`Hahaha stop ${P}! 🤣`,`Again! Again! 😆`],[`I'll pick up the ${T.objPlural}!`,`Me help! Me help! 🧹`],[`Two scoops for me please! 🍦`,`And one for ${P}! 🍦`]][n];
- sayKid('Nithila',msg[0],3800);setTimeout(()=>sayKid('Seyon',msg[1],3200),700);
- setQ(['Nithila and Seyon hug it out. Best friends again! 🤗','Tickle attack! Both kids forgot the fight completely 😂','Teamwork! The room is clean again ✨','Peace treaty signed with ice cream. Everybody wins 🍦'][n]);
- setTimeout(()=>{const last=S.round>=2;$('#sheetCard').innerHTML=`<h3>${last?'Mystery case closed! 📁':'Ready for the next round? 😈'}</h3><div style="margin:8px 0 14px">${last?'Let\'s see how good a detective you were…':'Uh-oh… the kids are already looking at each other again…'}</div><button class="btn big" onclick="${last?'endTheme()':'nextRound()'}">${last?'See results ⭐':'Next round ▶'}</button>`;$('#sheet').classList.add('on')},2800)}
+ const A=PL[0],B=PL[1],msg=[[`Sorry ${callOf(A,B)}! ❤️`,`Sorry ${callOf(B,A)}! 🤗`],[`Hahaha stop ${P}! 🤣`,`Again! Again! 😆`],[`I'll pick up the ${T.objPlural}!`,AV[B].age<4?'Me help! Me help! 🧹':'I\'ll help too! 🧹'],[`Two scoops for me please! 🍦`,`And one for ${P}! 🍦`]][n];
+ sayKid(A,msg[0],3800);setTimeout(()=>sayKid(B,msg[1],3200),700);
+ setQ([`${A} and ${B} hug it out. Best friends again! 🤗`,'Tickle attack! Both kids forgot the fight completely 😂','Teamwork! The room is clean again ✨','Peace treaty signed with ice cream. Everybody wins 🍦'][n]);
+ setTimeout(()=>{if(S.phase!=='peace'||!$('#game').classList.contains('on'))return;const last=S.round>=2;$('#sheetCard').innerHTML=`<h3>${last?'Mystery case closed! 📁':'Ready for the next round? 😈'}</h3><div style="margin:8px 0 14px">${last?'Let\'s see how good a detective you were…':'Uh-oh… the kids are already looking at each other again…'}</div><button class="btn big" onclick="${last?'endTheme()':'nextRound()'}">${last?'See results ⭐':'Next round ▶'}</button>`;$('#sheet').classList.add('on')},2800)}
 function nextRound(){SFX.click();S.round++;startRound()}
 function endTheme(){const T=th(),st=S.correct;if(st>(BEST[T.id]||0)){BEST[T.id]=st;try{localStorage.setItem('wti_best',JSON.stringify(BEST))}catch(e){}}
- const P=S.parent,msg=[`Nithila & Seyon fooled you completely! 🙈 Try again, ${P}!`,`The kids are winning… for now! 😜`,`Good job, ${P}! The kids are getting nervous 😅`,`SUPER DETECTIVE ${P.toUpperCase()}! Nothing escapes you! 🕵️`][st];
+ const P=S.parent,msg=[`${PL[0]} & ${PL[1]} fooled you completely! 🙈 Try again, ${P}!`,`The kids are winning… for now! 😜`,`Good job, ${P}! The kids are getting nervous 😅`,`SUPER DETECTIVE ${P.toUpperCase()}! Nothing escapes you! 🕵️`][st];
  if(st>=2)SFX.win();
  $('#sheetCard').innerHTML=`<h3>${T.emoji} ${T.name} results</h3><div class="bigstars">${'⭐'.repeat(st)}${'☆'.repeat(3-st)}</div><div style="font-size:19px;font-weight:700">${msg}</div><div class="pts">This place: ${S.themeScore} pts · Total: ${S.score} pts</div><div class="row" style="margin-top:12px"><button class="btn" onclick="startTheme(${S.theme})">🔁 Play again</button><button class="btn purple" onclick="closeSheet();go('themes')">🏠 Another place</button></div>`;$('#sheet').classList.add('on')}
 
 /* ============ TITLE ART ============ */
 function titleArt(){const t={...THEMES[4]};
- $('#titleArt').innerHTML=`<rect x="40" y="200" width="380" height="34" rx="12" fill="#ff6fae"/><rect x="60" y="232" width="14" height="20" fill="#7b2a55"/><rect x="386" y="232" width="14" height="20" fill="#7b2a55"/>`+
-  kidSVG('Nithila','gown',{x:150,y:212,s:.82,inner:1,expr:'laugh',theme:'party',objT:'cupcake'})+kidSVG('Seyon','suit',{x:315,y:212,s:.66,inner:-1,expr:'laugh',theme:'party',objT:'cupcake'})+
-  `<g transform="translate(232,70)"><g class="floaty">${obj('cushion',0,0,1.1,0)}</g></g><g transform="translate(232,40)"><g class="floaty" style="animation-delay:-.8s">${obj('teddy',0,0,.9,0)}</g></g>`}
+ $('#titleArt').innerHTML=`<rect x="30" y="200" width="460" height="34" rx="12" fill="#ff6fae"/><rect x="50" y="232" width="14" height="20" fill="#7b2a55"/><rect x="456" y="232" width="14" height="20" fill="#7b2a55"/>`+
+  kidSVG('Nithila','gown',{x:110,y:212,s:.8,inner:1,expr:'laugh',theme:'party',objT:'cupcake'})+kidSVG('Joshitha','gownJ',{x:262,y:212,s:.72,inner:1,expr:'laugh',theme:'party',objT:'cupcake'})+kidSVG('Seyon','suit',{x:410,y:212,s:.64,inner:-1,expr:'laugh',theme:'party',objT:'cupcake'})+
+  `<g transform="translate(186,62)"><g class="floaty">${obj('cushion',0,0,1.1,0)}</g></g><g transform="translate(338,44)"><g class="floaty" style="animation-delay:-.8s">${obj('teddy',0,0,.9,0)}</g></g>`}
 
 /* =====================================================
    RACE DAY — split-screen Nithila vs Seyon
    ===================================================== */
 const RACES=[
 {id:'school',name:'School Rush',sub:'Who reaches school first?',emoji:'🏫',col:'#2a9d8f',
- desc:'Nithila races to <b>Shree Niketan</b>, Seyon races to <b>Olive Public School</b>. Brush, bathe, eat, get ready… GO!',
+ desc:'Everyone races to their own school: Nithila → <b>Shree Niketan</b>, Joshitha → <b>Sunbeam School</b>, Seyon → <b>Olive Public School</b>. Brush, bathe, eat, get ready… GO!',
  intro:'⏰ RING RING RING!<br>Amma: "Wake up, kids! The school van comes at 8 o\'clock!"',alarm:1,
- goal:{Nithila:'→ Shree Niketan 🏫',Seyon:'→ Olive Public School 🏫'},
- win:k=>`${k} reached ${k==='Nithila'?'Shree Niketan':'Olive Public School'} first! 🏫`,
- wl:{Nithila:'Bye bye Seyon! See you after school! 👋🎒',Seyon:'Me first! Me FAST! 🦖💨'},
- ll:{Nithila:'Not fair! Amma took sooo long with my hair! 😤',Seyon:'Wait for meeee, Akka! 😭'},
- outfit:(k,s,p)=>s===0?(k==='Nithila'?'pajama':'onesie'):(s<3||(s===3&&p<.45))?'towel':(k==='Nithila'?'uniT':'uniS'),
+ goal:k=>`→ ${AV[k].school.n} 🏫`,
+ win:k=>`${k} reached ${AV[k].school.n} first! 🏫`,
+ wl:{Nithila:o=>`Bye bye ${o}! See you after school! 👋🎒`,Joshitha:()=>'I\'m first! My teacher will give me a star! ⭐',Seyon:()=>'Me first! Me FAST! 🦖💨'},
+ ll:{Nithila:()=>'Not fair! Amma took sooo long with my hair! 😤',Joshitha:()=>'My shoe was hiding from me! 😩👟',Seyon:o=>`Wait for meeee, ${callOf('Seyon',o)}! 😭`},
+ outfit:(k,s,p)=>s===0?AV[k].fit.pj:(s<3||(s===3&&p<.45))?'towel':AV[k].fit.uni,
  stages:[
   {n:'Brush teeth',i:'🪥',taps:14,bg:'brush',fx:'🫧',expr:'laugh',ev:[
    {t:'mash',i:'🧴',m:'Toothpaste squirted on the mirror! Wipe it clean!',n:7},
@@ -881,11 +942,11 @@ const RACES=[
 {id:'clean',name:'Toy Clean-Up',sub:'Clean up first, then cartoon time!',emoji:'🧹',col:'#f77f00',
  desc:'Amma says: "No cartoons until your room is clean!" Toys, books, clothes, bed… then run for the best sofa seat!',
  intro:'📢 Amma: "Look at this mess!<br>Clean your rooms — THEN cartoon time!"',
- goal:{Nithila:'→ Cartoon time! 📺',Seyon:'→ Cartoon time! 📺'},
+ goal:()=>'→ Cartoon time! 📺',
  win:k=>`${k} cleaned up first and grabbed the best sofa seat! 📺`,
- wl:{Nithila:'Clean room, happy Amma, cartoon time! 😎',Seyon:'Me clean! Me superhero! 🦸'},
- ll:{Nithila:'Seyon, did you hide your toys under the bed?! 🤨',Seyon:'Akka, help meee… 🥺'},
- outfit:k=>k==='Nithila'?'frock':'cape',
+ wl:{Nithila:()=>'Clean room, happy Amma, cartoon time! 😎',Joshitha:()=>'I cleaned AND I danced! 💃📺',Seyon:()=>'Me clean! Me superhero! 🦸'},
+ ll:{Nithila:o=>`${o}, did you hide your toys under the bed?! 🤨`,Joshitha:()=>'I was sorting my crayons by colour… 🖍️',Seyon:o=>`${callOf('Seyon',o)}, help meee… 🥺`},
+ outfit:k=>AV[k].fit.play,
  stages:[
   {n:'Pick up toys',i:'🧸',taps:14,bg:'toys',fx:'🧸',ev:[
    {t:'mash',i:'🦖',m:'The dino rolled under the bed! Pull it out!',n:7},
@@ -910,11 +971,11 @@ const RACES=[
 {id:'diwali',name:'Diwali Morning',sub:'Race to Paati for blessings!',emoji:'🪔',col:'#d6246e',
  desc:'Oil bath, new clothes, sweets and flower-pot crackers (safely, with Appa!). First to reach Paati\'s house wins!',
  intro:'🪔 4 a.m.! Paati: "Happy Diwali, kanna!<br>Oil bath first, then new clothes!"',
- goal:{Nithila:'→ Paati\'s house 👵🏽',Seyon:'→ Paati\'s house 👵🏽'},
+ goal:()=>'→ Paati\'s house 👵🏽',
  win:k=>`${k} reached Paati first! Paati gives an extra laddu 🟠👵🏽`,
- wl:{Nithila:'Happy Diwali, Paati! 🪔 Can I have two laddus?',Seyon:'Paati! Paati! Me first! 🎆'},
- ll:{Nithila:'My new pavadai was too long to run in! 😅',Seyon:'Me want laddu too! 😭'},
- outfit:(k,s,p)=>(s===0||(s===1&&p<.5))?'towel':(k==='Nithila'?'pavadai':'veshti'),
+ wl:{Nithila:()=>'Happy Diwali, Paati! 🪔 Can I have two laddus?',Joshitha:()=>'Paati, look at my new pavadai! I\'m twirling! 💃',Seyon:()=>'Paati! Paati! Me first! 🎆'},
+ ll:{Nithila:()=>'My new pavadai was too long to run in! 😅',Joshitha:()=>'I stopped to look at the rangoli… 🌸',Seyon:()=>'Me want laddu too! 😭'},
+ outfit:(k,s,p)=>(s===0||(s===1&&p<.5))?'towel':AV[k].fit.fest,
  stages:[
   {n:'Oil bath',i:'🛁',taps:16,bg:'bath',oil:1,fx:'💧',ev:[
    {t:'mash',i:'🧼',m:'Oily hands! The soap keeps slipping — catch it!',n:7},
@@ -939,11 +1000,11 @@ const RACES=[
 {id:'bed',name:'Bedtime Race',sub:'Who falls asleep first?',emoji:'🌙',col:'#3a0ca3',night:1,
  desc:'Milk, brush, pyjamas, story… and SLEEP! The first one to reach dreamland wins (parents love this one 😉).',
  intro:'🌙 Appa: "It\'s 9 o\'clock!<br>First one asleep gets dosa with extra ghee tomorrow!"',
- goal:{Nithila:'→ Dreamland 💤',Seyon:'→ Dreamland 💤'},
+ goal:()=>'→ Dreamland 💤',
  win:k=>`${k} fell asleep first! Shhh… 💤`,
- wl:{Nithila:'Zzz… ghee dosa… Zzz… 😴',Seyon:'Zzz… dino… Zzz… 🦖😴'},
- ll:{Nithila:'Seyon is asleep ALREADY?! 🥱',Seyon:'Akka sleeping? Me… not… sleepy… *yawn* 🥱'},
- outfit:(k,s,p)=>(s<2||(s===2&&p<.5))?(k==='Nithila'?'frock':'cape'):(k==='Nithila'?'pajama':'onesie'),
+ wl:{Nithila:()=>'Zzz… ghee dosa… Zzz… 😴',Joshitha:()=>'Zzz… dancing unicorns… Zzz… 🦄😴',Seyon:()=>'Zzz… dino… Zzz… 🦖😴'},
+ ll:{Nithila:o=>`${o} is asleep ALREADY?! 🥱`,Joshitha:()=>'One more story pleeease… 🥱📖',Seyon:o=>`${callOf('Seyon',o)} sleeping? Me… not… sleepy… *yawn* 🥱`},
+ outfit:(k,s,p)=>(s<2||(s===2&&p<.5))?AV[k].fit.play:AV[k].fit.pj,
  stages:[
   {n:'Drink milk',i:'🥛',taps:12,bg:'milk',fx:'🥛',ev:[
    {t:'mash',i:'🥛',m:'Milk moustache! Wipe it off!',n:6},
@@ -968,20 +1029,20 @@ const RACES=[
 ];
 
 const R={theme:0,mode:'2p',boost:true,cpu:null,active:false,over:false,winner:null,run:0,p:{},t0:0,lead:null,leadT:0,timers:[],cpuIv:null,cpuRate:4.3};
-let WINS={Nithila:0,Seyon:0};try{Object.assign(WINS,JSON.parse(localStorage.getItem('ts_wins')||'{}'))}catch(e){}
+let WINS={Nithila:0,Joshitha:0,Seyon:0};try{Object.assign(WINS,JSON.parse(localStorage.getItem('ts_wins')||'{}'))}catch(e){}
 if(WINS.Thila){WINS.Nithila+=WINS.Thila;delete WINS.Thila;try{localStorage.setItem('ts_wins',JSON.stringify(WINS))}catch(e){}}
 const RC=()=>RACES[R.theme];
-const KCOL={Nithila:'#ff5fa2',Seyon:'#3d8bff'};
-const boosted=k=>k==='Seyon'&&R.boost&&R.cpu!=='Seyon';
+const KCOL=Object.fromEntries(AVK.map(k=>[k,AV[k].col2]));
+const boosted=k=>k===youngest()&&R.boost&&R.cpu!==k;
 SFX.boing=()=>tone(220,.35,'sine',.2,0,700);
 SFX.ring=()=>{for(let i=0;i<14;i++)tone(i%2?1180:1400,.07,'square',.05,i*.08)};
 SFX.chime=()=>[660,880,1100].forEach((f,i)=>tone(f,.15,'sine',.12,i*.08));
 SFX.buzz=()=>tone(150,.25,'sawtooth',.08);
 
 function buildRaceMenu(){
- $('#raceScore').innerHTML=`🏆 Family scoreboard: 👧 Nithila <b>${WINS.Nithila}</b> · 👦 Seyon <b>${WINS.Seyon}</b>`;
- $('#modeSeg').innerHTML=[['2p','👧 vs 👦 Two players'],['T','👧 I am Nithila vs 🤖'],['S','👦 I am Seyon vs 🤖']].map(([m,l])=>`<button class="${R.mode===m?'on':''}" onclick="R.mode='${m}';SFX.click();buildRaceMenu()">${l}</button>`).join('');
- $('#boostSeg').innerHTML=`<button class="${R.boost?'on':''}" onclick="R.boost=!R.boost;SFX.click();buildRaceMenu()">${R.boost?'✅':'⬜'} 👶 Little-one boost: Seyon needs fewer taps</button>`;
+ $('#rPbar').innerHTML=pbar('raceMenu');$('#raceScore').innerHTML=famScore();
+ $('#modeSeg').innerHTML=[['2p',`${AV[PL[0]].e} vs ${AV[PL[1]].e} Two players`],['T',`${NM(PL[0])} vs 🤖`],['S',`${NM(PL[1])} vs 🤖`]].map(([m,l])=>`<button class="${R.mode===m?'on':''}" onclick="R.mode='${m}';SFX.click();buildRaceMenu()">${l}</button>`).join('');
+ $('#boostSeg').innerHTML=`<button class="${R.boost?'on':''}" onclick="R.boost=!R.boost;SFX.click();buildRaceMenu()">${R.boost?'✅':'⬜'} 👶 Little-one boost: ${youngest()} needs fewer taps</button>`;
  $('#raceGrid').innerHTML=RACES.map((r,i)=>`<button class="tcard" onclick="startRace(${i})"><div class="top" style="background:${r.col}"><span class="e">${r.emoji}</span><span><b>${r.name}</b><i>${r.sub}</i></span></div><div class="body">${r.desc}<div class="steps">${r.stages.map(s=>s.i).join(' → ')} 🏁</div></div></button>`).join('')}
 
 function startRace(i){ac();SFX.click();R.theme=i;go('race');setupRace()}
@@ -992,22 +1053,22 @@ function schedule(race){const n=race.stages.length,st=shuffle([...Array(n).keys(
  return st.map((s,i)=>{const pool=race.stages[s].ev;return {stage:s,at:.3+Math.random()*.45,ev:pool.find(e=>e.t===ty[i])||rnd(pool),fired:false}})}
 
 function setupRace(){
- const race=RC();stopRace();R.over=false;R.winner=null;R.cpu=R.mode==='T'?'Seyon':R.mode==='S'?'Nithila':null;R.lead=null;R.leadT=0;
+ const race=RC();stopRace();R.over=false;R.winner=null;R.cpu=R.mode==='T'?PL[1]:R.mode==='S'?PL[0]:null;R.lead=null;R.leadT=0;
  $('#rTitle').innerHTML=`${race.emoji} ${race.name}<small>${race.sub}</small>`;
  R.p={};
- for(const k of ['Nithila','Seyon']){R.p[k]={stage:0,taps:0,need:needFor(k,0),evt:null,lock:false,done:false,sched:schedule(race)};$('#half-'+k).innerHTML=buildHalf(k)}
- $('#mid').innerHTML=`<div class="trk">${race.stages.map(s=>`<div class="ti">${s.i}</div>`).join('')}<div class="ti">🏁</div></div><span class="mk" id="mk-Nithila">👧</span><span class="mk" id="mk-Seyon">👦</span>`;
- for(const k of ['Nithila','Seyon']){upd(k);$('#tap-'+k).addEventListener('pointerdown',e=>{e.preventDefault();tap(k,true)})}
+ R.p={};for(const k of PL){R.p[k]={stage:0,taps:0,need:needFor(k,0),evt:null,lock:false,done:false,sched:schedule(race)};$('#half-'+sid(k)).innerHTML=buildHalf(k)}
+ $('#mid').innerHTML=`<div class="trk">${race.stages.map(s=>`<div class="ti">${s.i}</div>`).join('')}<div class="ti">🏁</div></div><span class="mk" id="mk-p0">${AV[PL[0]].e}</span><span class="mk" id="mk-p1">${AV[PL[1]].e}</span>`;
+ for(const k of PL){upd(k);$('#tap-'+k).addEventListener('pointerdown',e=>{e.preventDefault();tap(k,true)})}
  countdown()}
 
-function buildHalf(k){const race=RC(),who=R.cpu===k?'🤖 Computer':R.cpu?'You':(k==='Nithila'?'Player 1':'Player 2');
- return `<div class="hhead" style="background:${KCOL[k]}"><b>${k==='Nithila'?'👧 NITHILA':'👦 SEYON'}</b><small>${race.goal[k]}</small><span class="who">${who}</span></div>
+function buildHalf(k){const race=RC(),who=R.cpu===k?'🤖 Computer':R.cpu?'You':('Player '+(slot(k)+1));
+ return `<div class="hhead" style="background:${KCOL[k]}"><b>${AV[k].e} ${k.toUpperCase()}</b><small>${race.goal(k)}</small><span class="who">${who}</span></div>
  <div class="hstage"><svg viewBox="0 0 400 340" preserveAspectRatio="xMidYMid meet" id="svg-${k}"></svg><div class="fxh" id="fx-${k}"></div><div class="evt" id="evt-${k}"></div><div class="hdone" id="done-${k}"></div></div>
  <div class="hinfo"><span id="sn-${k}"></span><div class="bar"><i id="bar-${k}"></i></div></div>
- <button class="tapbtn" id="tap-${k}" style="--c:${KCOL[k]}">TAP! 👆<small>${R.cpu===k?'':k==='Nithila'?'or keys A S D':'or keys J K L'}</small></button>`}
+ <button class="tapbtn" id="tap-${k}" style="--c:${KCOL[k]}">TAP! 👆<small>${R.cpu===k?'':slot(k)===0?'or keys A S D':'or keys J K L'}</small></button>`}
 
 async function countdown(){const id=R.run,cd=$('#cd'),race=RC();cd.classList.add('on');
- cd.innerHTML=`<div class="intro">${race.intro}<br><small style="font-size:.5em;opacity:.85">${R.cpu?'Tap your big button as fast as you can!':'👧 Nithila: left button (A S D) · 👦 Seyon: right button (J K L)'}</small></div>`;
+ cd.innerHTML=`<div class="intro">${race.intro}<br><small style="font-size:.5em;opacity:.85">${R.cpu?'Tap your big button as fast as you can!':`${NM(PL[0])}: left button (A S D) · ${NM(PL[1])}: right button (J K L)`}</small></div>`;
  if(race.alarm)SFX.ring();else SFX.boing();
  await wait(3000);if(id!==R.run)return;
  for(const n of ['3','2','1']){cd.innerHTML=`<div class="n">${n}</div>`;tone(440,.15,'square',.08);await wait(750);if(id!==R.run)return}
@@ -1022,8 +1083,8 @@ function cpuTick(){if(!R.active)return;const k=R.cpu,P=R.p[k];if(!P||P.done||P.l
 
 function tap(k,human){if(!R.active)return;if(human&&R.cpu===k)return;const P=R.p[k];if(!P||P.done||P.lock)return;
  const e=P.evt;
- if(e){if(e.t==='mash'){e.left--;tone(k==='Nithila'?720:540,.05,'square',.04,0,null,k==='Nithila'?-.5:.5);part(k,e.i);if(e.left<=0)clearEvt(k);else{renderEvt(k);updBtn(k)}}return}
- P.taps++;tone((k==='Nithila'?620:460)+P.taps*6,.05,'triangle',.06,0,null,k==='Nithila'?-.5:.5);
+ if(e){if(e.t==='mash'){e.left--;tone(slot(k)===0?720:540,.05,'square',.04,0,null,lpan(k));part(k,e.i);if(e.left<=0)clearEvt(k);else{renderEvt(k);updBtn(k)}}return}
+ P.taps++;tone((slot(k)===0?620:460)+P.taps*6,.05,'triangle',.06,0,null,lpan(k));
  part(k,RC().stages[P.stage].fx);
  if(P.taps>=P.need){stageDone(k);return}
  const f=P.taps/P.need,sc=P.sched.find(x=>!x.fired&&x.stage===P.stage&&f>=x.at);
@@ -1042,7 +1103,7 @@ function renderEvt(k){const P=R.p[k],el=$('#evt-'+k),e=P.evt;if(!el)return;
  el.classList.add('on');let body='';
  if(e.t==='mash')body=`<div class="ec">Tap ${e.left} more! 👆</div>`;
  if(e.t==='wait')body=`<div class="ec">⏳ Wait… ${Math.ceil(e.remain)}</div>`;
- if(e.t==='pick')body=`<div class="eo">${e.opts.map((o,i)=>`<button data-k="${k}" data-i="${i}">${o}${R.cpu===k?'':`<small>${(k==='Nithila'?'ASD':'JKL')[i]}</small>`}</button>`).join('')}</div>`+(e.pen?'<div class="ec bad">❌ Oops! Not that one!</div>':'');
+ if(e.t==='pick')body=`<div class="eo">${e.opts.map((o,i)=>`<button data-k="${k}" data-i="${i}">${o}${R.cpu===k?'':`<small>${(slot(k)===0?'ASD':'JKL')[i]}</small>`}</button>`).join('')}</div>`+(e.pen?'<div class="ec bad">❌ Oops! Not that one!</div>':'');
  el.innerHTML=`<div class="ei">${e.i}</div><div class="em">${e.m}</div>${body}`}
 
 function pick(k,i){if(!R.active)return;const P=R.p[k],e=P.evt;if(!e||e.t!=='pick'||e.pen)return;
@@ -1061,25 +1122,25 @@ function finish(k){if(R.over)return;R.over=true;R.active=false;R.winner=k;clearI
  const t=((performance.now()-R.t0)/1000).toFixed(1);
  WINS[k]++;try{localStorage.setItem('ts_wins',JSON.stringify(WINS))}catch(e){}
  SFX.win();
- for(const x of ['Nithila','Seyon']){const P=R.p[x];P.evt=null;renderEvt(x);upd(x);const d=$('#done-'+x);d.classList.add('on');d.textContent=x===k?'🏆 FIRST!':'😅 Almost!'}
+ for(const x of PL){const P=R.p[x];P.evt=null;renderEvt(x);upd(x);const d=$('#done-'+x);d.classList.add('on');d.textContent=x===k?'🏆 FIRST!':'😅 Almost!'}
  for(let i=0;i<18;i++){const d=document.createElement('div');d.className='heart';d.textContent=rnd(['🎉','🎊','⭐','🏆','✨']);d.style.left=(10+Math.random()*80)+'%';d.style.top=(50+Math.random()*40)+'%';d.style.animationDelay=(Math.random()*1)+'s';$('#fx-'+k).appendChild(d);setTimeout(()=>d.remove(),3800)}
  const id=R.run;setTimeout(()=>{if(id===R.run)raceResult(k,t)},1900)}
 
 function raceResult(k,t){const race=RC(),o=other(k),last=race.stages.length-1;
  $('#sheetCard').innerHTML=`<svg viewBox="0 0 320 210" style="width:min(300px,80%);display:block;margin:0 auto">${KD(k,race.outfit(k,last,1),130,152,'laugh',false,KIDS[k].s*.75)}<text x="250" y="130" font-size="64" text-anchor="middle">🏆</text></svg>
  <h3>${race.win(k)}</h3><div class="pts">⏱️ ${t} seconds</div>
- <div style="font-size:18px;line-height:1.4"><b>${k}:</b> ${race.wl[k]}<br><b>${o}:</b> ${race.ll[o]}</div>
+ <div style="font-size:18px;line-height:1.4"><b>${k}:</b> ${race.wl[k](o)}<br><b>${o}:</b> ${race.ll[o](k)}</div>
  <div style="margin:8px 0;font-size:16px;color:#6b5f86">Good game! Now both of you do a high-five ✋</div>
- <div class="score" style="color:#2b2140">🏆 Family scoreboard: 👧 Nithila ${WINS.Nithila} · 👦 Seyon ${WINS.Seyon}</div>
+ <div class="score" style="color:#2b2140">${famScore()}</div>
  <div class="row"><button class="btn" onclick="closeSheet();setupRace()">🔁 Rematch</button><button class="btn purple" onclick="leaveRace()">🏁 Other races</button></div>`;
  $('#sheet').classList.add('on')}
 
 function prog(k){const P=R.p[k];if(!P)return 0;return P.stage+(P.done?1:Math.min(1,P.taps/P.need))}
-function lead(){if(!R.p.Nithila||!R.p.Seyon)return;const n=RC().stages.length;
- for(const k of ['Nithila','Seyon']){const f=prog(k)/n,m=$('#mk-'+k);if(m)m.style.top=`calc(10px + ${f*100}% - ${f*20}px)`}
- if(!R.active)return;const a=prog('Nithila'),b=prog('Seyon');if(Math.abs(a-b)<.3)return;
- const L=a>b?'Nithila':'Seyon',now=performance.now();
- if(L!==R.lead&&now-R.leadT>2500){if(R.lead)rbanner(L==='Nithila'?'💨 Nithila takes the lead!':'🦖 Seyon takes the lead!');R.lead=L;R.leadT=now}}
+function lead(){if(!R.p[PL[0]]||!R.p[PL[1]])return;const n=RC().stages.length;
+ for(const k of PL){const f=prog(k)/n,m=$('#mk-'+sid(k));if(m)m.style.top=`calc(10px + ${f*100}% - ${f*20}px)`}
+ if(!R.active)return;const a=prog(PL[0]),b=prog(PL[1]);if(Math.abs(a-b)<.3)return;
+ const L=a>b?PL[0]:PL[1],now=performance.now();
+ if(L!==R.lead&&now-R.leadT>2500){if(R.lead)rbanner(`💨 ${AV[L].e} ${L} takes the lead!`);R.lead=L;R.leadT=now}}
 let rbT;function rbanner(t){const b=$('#rbanner');b.textContent=t;b.style.opacity=1;clearTimeout(rbT);rbT=setTimeout(()=>b.style.opacity=0,1800)}
 function hpop(k,t){const f=$('#fx-'+k);if(!f)return;const d=document.createElement('div');d.className='hpop';d.textContent=t;f.appendChild(d);setTimeout(()=>d.remove(),1000)}
 function part(k,em){const f=$('#fx-'+k);if(!f||f.children.length>14)return;const d=document.createElement('div');d.className='part';d.textContent=em;d.style.left=(25+Math.random()*50)+'%';d.style.top=(30+Math.random()*35)+'%';f.appendChild(d);setTimeout(()=>d.remove(),800)}
@@ -1096,9 +1157,9 @@ function updBtn(k){const P=R.p[k],b=$('#tap-'+k);if(!b||!P)return;const e=P.evt;
  b.firstChild.textContent=t;b.classList.toggle('dim',dim)}
 
 document.addEventListener('keydown',e=>{if(!$('#race').classList.contains('on')||e.repeat)return;
- const key=e.key.toLowerCase(),map={a:['Nithila',0],s:['Nithila',1],d:['Nithila',2],j:['Seyon',0],k:['Seyon',1],l:['Seyon',2]};
- let m=map[key];if(!m&&key===' '&&R.cpu)m=[other(R.cpu),-1];if(!m)return;e.preventDefault();
- const [k,i]=m;if(R.cpu===k)return;const P=R.p[k];
+ const key=e.key.toLowerCase(),map={a:[0,0],s:[0,1],d:[0,2],j:[1,0],k:[1,1],l:[1,2]};
+ let m=map[key];if(m)m=[PL[m[0]],m[1]];if(!m&&key===' '&&R.cpu)m=[other(R.cpu),-1];if(!m)return;e.preventDefault();
+ let [k,i]=m;if(R.cpu===k)k=other(k);const P=R.p[k];
  if(P&&P.evt&&P.evt.t==='pick'){if(i>=0)pick(k,i)}else tap(k,true);
  const b=$('#tap-'+k);if(b){b.classList.add('press');setTimeout(()=>b.classList.remove('press'),80)}});
 document.addEventListener('pointerdown',e=>{const b=e.target.closest('.evt [data-i]');if(!b)return;e.preventDefault();const k=b.dataset.k;if(R.cpu===k)return;pick(k,+b.dataset.i)});
@@ -1162,20 +1223,20 @@ function stageSVG(k,s,p,hop){
  case 'ready':case 'dress':case 'pyjama':{
   o=bedroomBG(st.bg==='pyjama');
   if(st.bg==='dress')o+=toranAt(0,2,400)+E('🪔',150,334,24)+E('🪔',250,334,24);
-  if(st.bg==='ready'&&p<.45)o+=E(k==='Nithila'?'👗':'👕',62,150,44);
+  if(st.bg==='ready'&&p<.45)o+=E(AV[k].girl?'👗':'👕',62,150,44);
   o+=kid(200,258);
   if(st.bg==='ready'){if(p>.62)o+=E('🎒',336,322,46);if(p>.78)o+=E('🪪',70,324,32);if(p>.9)o+=E('📚',120,328,28)}
   if(st.bg==='dress')o+=E(p<.5?'🎁':'🎉',336,322,46);
   if(st.bg==='pyjama')o+=E(p<.5?'🧺':'🧸',336,322,42);
   break}
- case 'school':{const vx=58+p*212,col=k==='Nithila'?'#ffd166':'#c5d89d';
+ case 'school':{const vx=58+p*212,SC=AV[k].school,col=SC.w;
   o=`<rect width="400" height="340" fill="#a8e0ff"/><circle cx="54" cy="40" r="22" fill="#ffd23f"/><g fill="#fff"><ellipse cx="170" cy="44" rx="34" ry="12"/><ellipse cx="192" cy="36" rx="22" ry="12"/></g>
   <rect x="4" y="130" width="64" height="72" fill="#ffb4a2"/><path d="M0,134 L36,100 L72,134Z" fill="#c1121f"/><rect x="26" y="166" width="18" height="36" fill="#7b4a2a"/>
-  <line x1="390" y1="28" x2="390" y2="96" stroke="#666" stroke-width="3"/><rect x="364" y="28" width="26" height="16" fill="${k==='Nithila'?'#c1121f':'#556b2f'}"/>
-  <rect x="290" y="96" width="108" height="106" fill="${col}"/><path d="M284,100 L344,68 L404,100Z" fill="${k==='Nithila'?'#c1121f':'#556b2f'}"/>${[[298,142],[322,142],[366,142],[298,170],[372,170]].map(([x,y])=>`<rect x="${x}" y="${y}" width="18" height="16" fill="#8fd3ff" stroke="#fff" stroke-width="2"/>`).join('')}<rect x="334" y="164" width="26" height="38" fill="#7b4a2a"/>
-  <rect x="294" y="104" width="100" height="30" rx="4" fill="#fff" stroke="#333" stroke-width="2"/>${k==='Nithila'?'<text x="344" y="124" font-size="12" text-anchor="middle" font-weight="800" fill="#c1121f">SHREE NIKETAN</text>':'<text x="344" y="117" font-size="10.5" text-anchor="middle" font-weight="800" fill="#3a4a1f">OLIVE PUBLIC</text><text x="344" y="129" font-size="10.5" text-anchor="middle" font-weight="800" fill="#3a4a1f">SCHOOL</text>'}
+  <line x1="390" y1="28" x2="390" y2="96" stroke="#666" stroke-width="3"/><rect x="364" y="28" width="26" height="16" fill="${SC.c}"/>
+  <rect x="290" y="96" width="108" height="106" fill="${col}"/><path d="M284,100 L344,68 L404,100Z" fill="${SC.c}"/>${[[298,142],[322,142],[366,142],[298,170],[372,170]].map(([x,y])=>`<rect x="${x}" y="${y}" width="18" height="16" fill="#8fd3ff" stroke="#fff" stroke-width="2"/>`).join('')}<rect x="334" y="164" width="26" height="38" fill="#7b4a2a"/>
+  <rect x="294" y="104" width="100" height="30" rx="4" fill="#fff" stroke="#333" stroke-width="2"/>${SC.l2?`<text x="344" y="117" font-size="10.5" text-anchor="middle" font-weight="800" fill="${SC.c}">${SC.l1}</text><text x="344" y="129" font-size="10.5" text-anchor="middle" font-weight="800" fill="${SC.c}">${SC.l2}</text>`:`<text x="344" y="124" font-size="12" text-anchor="middle" font-weight="800" fill="${SC.c}">${SC.l1}</text>`}
   <rect y="202" width="400" height="48" fill="#d9d2c5"/><rect y="250" width="400" height="58" fill="#555"/>${[0,1,2,3,4,5,6].map(i=>`<rect x="${i*64+8}" y="277" width="34" height="4" fill="#fff"/>`).join('')}<rect y="308" width="400" height="32" fill="#7cc36e"/>`;
-  o+=k==='Nithila'?van(k,oid,vx,ex,p):scooter(k,oid,vx,ex,p);
+  o+=SC.ride==='van'?van(k,oid,vx,ex,p):scooter(k,oid,vx,ex,p);
   if(p>=1)o+=E('🎉',344,60,30);break}
  case 'toys':case 'books':case 'clothes':case 'bed':{o=roomBG();
   if(st.bg==='bed')o+=`<rect x="40" y="150" width="320" height="60" rx="18" fill="#a86b3c"/><rect x="34" y="200" width="332" height="50" rx="10" fill="#fff"/>`+(p>=.5?`<ellipse cx="110" cy="204" rx="46" ry="14" fill="#fff" stroke="#ddd" stroke-width="2"/>`:'')+(p>=1?`<rect x="34" y="216" width="332" height="40" rx="8" fill="#4a6fd6"/>`:`<path d="M40,228 Q90,${(196+24*(1-p)).toFixed(0)} 140,230 Q200,256 250,${(214+12*p).toFixed(0)} Q310,196 360,238 L360,256 L40,256Z" fill="#4a6fd6"/>`);
@@ -1217,11 +1278,11 @@ function stageSVG(k,s,p,hop){
    ===================================================== */
 const MSEG=200,RUMBLE=3,ROADW=2000,CAMH=1000,DEPTH=1/Math.tan(50*Math.PI/180),DRAW=170,PLZ=CAMH*DEPTH,MAXS=MSEG*60;
 const EMO='"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';
-const FNT='"Baloo 2","Comic Sans MS",sans-serif';
+const FNT='"Baloo 2","Baloo Thambi 2","Comic Sans MS",sans-serif';
 const VEH={car:{n:'Sports Car',e:'🏎️',w:560},bike:{n:'Superbike',e:'🏍️',w:300},auto:{n:'Auto Rickshaw',e:'🛺',w:520},kart:{n:'Go-Kart',e:'🏁',w:480}};
 const TRAF={car:560,bus:720,auto:520,lorry:720,scooter:300,animal:560};
-const KC={Nithila:'#ff3d8b',Seyon:'#2f7bff'};
-const BOARDS=['SHREE NIKETAN','OLIVE PUBLIC SCHOOL','MURUGAN TV CENTRE',"PAATI'S IDLI KADAI",'NITHILA ❤ SEYON','TURBO! 🔥','HORN OK PLEASE','VROOM VROOM'];
+const KC=Object.fromEntries(AVK.map(k=>[k,AV[k].col]));
+const BOARDS=['SHREE NIKETAN','OLIVE PUBLIC SCHOOL','MURUGAN TV CENTRE',"PAATI'S IDLI KADAI",'NITHILA ❤ JOSHITHA ❤ SEYON','TURBO! 🔥','HORN OK PLEASE','VROOM VROOM'];
 const TRACKS=[
  {id:'city',name:'Neon City Nights',sub:'Chennai after dark, NFS style!',emoji:'🌃',col:'linear-gradient(135deg,#ff2bd6,#3a0d5c)',laps:2,seed:11,
   sky:['#05011a','#33105a'],grass:['#15142b','#110f22'],road:['#2d2d3a','#282834'],rumble:['#ff2bd6','#00e5ff'],lane:'#ffe066',fog:'#2a0b48',fogA:.75,
@@ -1240,11 +1301,11 @@ const TRACKS=[
   traffic:['lorry','car','car','scooter'],deco:'desert',obstacle:'🐪',
   pieces:[[100,0,0],[80,0,40],[80,0,-40],[120,2,0],[80,0,60],[60,0,-60],[120,-2,0],[100,0,30],[100,0,-30],[100,3,0],[80,0,0]]},
 ];
-const M={track:0,mode:'2p',assist:true,veh:{Nithila:'bike',Seyon:'car'},run:0,loop:false,active:false,over:false,winner:null,raf:0,last:0,P:{},cars:[],segs:[],len:0,t0:0,eng:{},cv:{},ctx:{},cpu:null};
+const M={track:0,mode:'2p',assist:true,veh:{Nithila:'bike',Joshitha:'kart',Seyon:'car'},run:0,loop:false,active:false,over:false,winner:null,raf:0,last:0,P:{},cars:[],segs:[],len:0,t0:0,eng:{},cv:{},ctx:{},cpu:null};
 let MBEST={};try{MBEST=JSON.parse(localStorage.getItem('ts_moto_best')||'{}')}catch(e){}
 for(const t in MBEST)if(MBEST[t].k==='Thila')MBEST[t].k='Nithila';
 const MT=()=>TRACKS[M.track];
-const assisted=k=>k==='Seyon'&&M.assist&&M.cpu!=='Seyon';
+const assisted=k=>k===youngest()&&M.assist&&M.cpu!==k;
 let mseed=1;const srand=()=>{mseed=(mseed*16807)%2147483647;return (mseed-1)/2147483646};const rnd2=a=>a[Math.floor(srand()*a.length)];
 const hsh=i=>{const x=Math.sin(i*12.9898+78.233)*43758.5453;return x-Math.floor(x)};
 const easeIn=(a,b,p)=>a+(b-a)*p*p, easeIO=(a,b,p)=>a+(b-a)*((-Math.cos(p*Math.PI)/2)+.5);
@@ -1270,7 +1331,7 @@ function mDeco(T,segs){mseed=T.seed;const n=segs.length,R=srand,put=(i,o)=>{if(s
    if(i%7===0)put(i,{k:'emoji',e:'🌴',h:1500+R()*500,off:sd*(1.3+R()*.9)});
    if(i%23===0)put(i,{k:'emoji',e:'🛖',h:1200,off:-(2.4+R()*.8)});
    if(i%31===5)put(i,{k:'emoji',e:'⛱️',h:900,off:-(1.7+R()*.6)});
-   if(i%90===45)put(i,{k:'board',off:1.75,text:rnd2(['ELANEER 🥥 ₹40','BEACH THIS WAY 🏖️',"PAATI'S IDLI KADAI",'NITHILA ❤ SEYON']),c:'#ff9f1c'});
+   if(i%90===45)put(i,{k:'board',off:1.75,text:rnd2(['ELANEER 🥥 ₹40','BEACH THIS WAY 🏖️',"PAATI'S IDLI KADAI",'NITHILA ❤ JOSHITHA ❤ SEYON']),c:'#ff9f1c'});
   }else if(T.deco==='hills'){
    if(i%4===0)put(i,{k:'emoji',e:'🌲',h:1500+R()*700,off:sd*(1.3+R()*2.2)});
    if(i%17===0)put(i,{k:'emoji',e:'🪨',h:500+R()*300,off:sd*(1.25+R()*.5)});
@@ -1280,7 +1341,7 @@ function mDeco(T,segs){mseed=T.seed;const n=segs.length,R=srand,put=(i,o)=>{if(s
   }else{
    if(i%9===0)put(i,{k:'emoji',e:'🌵',h:1200+R()*500,off:sd*(1.3+R()*1.6)});
    if(i%13===0)put(i,{k:'emoji',e:'🪨',h:600+R()*500,off:sd*(1.4+R()*2)});
-   if(i%120===60)put(i,{k:'board',off:sd*1.75,text:rnd2(['NITRO ⚡ AHEAD','TURBO ZONE 🔥','DESERT RASH','NITHILA ❤ SEYON']),c:'#ffe066'});
+   if(i%120===60)put(i,{k:'board',off:sd*1.75,text:rnd2(['NITRO ⚡ AHEAD','TURBO ZONE 🔥','DESERT RASH','NITHILA ❤ JOSHITHA ❤ SEYON']),c:'#ffe066'});
   }}
  for(let i=60;i<n-25;i+=70){const off=(R()-.5)*1.2;for(let j=0;j<5;j++)put(i+j*3,{k:'coin',off,id:'c'+(i+j*3)})}
  for(let i=105;i<n-20;i+=140)put(i,{k:'nitro',off:(R()-.5)*1.3,id:'n'+i})}
@@ -1291,7 +1352,7 @@ function mCars(T,len){const cars=[];
   cars.push({type,z:(.07+Math.random()*.9)*len,x,tx:x,speed:MAXS*(slow?.22:.3+Math.random()*.14),col:rnd(['#e63946','#ffd23f','#4cc9f0','#80ed99','#f1f1f1','#9b5de5','#ff8fab'])})}
  if(T.obstacle)for(let i=0;i<6;i++){const x=(Math.random()-.5)*1.2;cars.push({type:'animal',e:T.obstacle,z:(.12+i*.14+Math.random()*.05)*len,x,tx:x,speed:0})}
  return cars}
-function mPlayer(k){return {k,z:0,x:k==='Nithila'?-.45:.45,speed:0,lap:1,nitro:.4,coins:0,L:false,R:false,N:false,bg:0,shake:0,msgs:[],done:false,got:new Set(),veh:M.veh[k],cpu:M.cpu===k,honk:0,tilt:0,lane:k==='Nithila'?-.45:.45,laneT:2,bonkT:0,offT:0,nitroOn:false,aiN:0}}
+function mPlayer(k){return {k,z:0,x:slot(k)===0?-.45:.45,speed:0,lap:1,nitro:.4,coins:0,L:false,R:false,N:false,bg:0,shake:0,msgs:[],done:false,got:new Set(),veh:M.veh[k],cpu:M.cpu===k,honk:0,tilt:0,lane:slot(k)===0?-.45:.45,laneT:2,bonkT:0,offT:0,nitroOn:false,aiN:0}}
 const segAt=z=>M.segs[Math.floor(((z%M.len)+M.len)%M.len/MSEG)];
 const tot=k=>(M.P[k].lap-1)*M.len+M.P[k].z;
 function mMsg(P,t){P.msgs.push({t,life:1.5});if(P.msgs.length>3)P.msgs.shift()}
@@ -1299,7 +1360,7 @@ function mMsg(P,t){P.msgs.push({t,life:1.5});if(P.msgs.length>3)P.msgs.shift()}
 /* ---------- update ---------- */
 function mUpdate(dt){const T=MT(),len=M.len;
  for(const c of M.cars){if(c.speed)c.z=(c.z+c.speed*dt)%len;c.x+=(c.tx-c.x)*Math.min(1,dt*2.5)}
- for(const k of ['Nithila','Seyon']){const P=M.P[k];
+ for(const k of PL){const P=M.P[k];
   P.shake=Math.max(0,P.shake-dt);P.bonkT=Math.max(0,P.bonkT-dt);P.honk=Math.max(0,P.honk-dt);P.offT=Math.max(0,P.offT-dt);
   P.msgs.forEach(m=>m.life-=dt);P.msgs=P.msgs.filter(m=>m.life>0);
   if(P.done)continue;
@@ -1327,7 +1388,7 @@ function mUpdate(dt){const T=MT(),len=M.len;
   for(let si=a;si<=b;si++){const sg=M.segs[si%M.segs.length];
    for(const s of sg.spr)if(s.k==='coin'||s.k==='nitro'){const key=P.lap+':'+s.id;
     if(!P.got.has(key)&&Math.abs(s.off-P.x)<.24){P.got.add(key);
-     if(s.k==='coin'){P.coins++;tone(1320,.07,'square',.04,0,1760,k==='Nithila'?-.6:.6)}
+     if(s.k==='coin'){P.coins++;tone(1320,.07,'square',.04,0,1760,lpan(k)*1.2)}
      else{P.nitro=Math.min(1,P.nitro+.5);mMsg(P,'+NITRO ⚡');SFX.chime()}}}}
   // traffic bonks
   if(P.bonkT<=0)for(const c of M.cars){let d=c.z-pz;if(d<-len/2)d+=len;if(d>len/2)d-=len;
@@ -1335,9 +1396,9 @@ function mUpdate(dt){const T=MT(),len=M.len;
    if(d>-20&&d<win&&P.speed>c.speed&&Math.abs(c.x-P.x)<(pw+TRAF[c.type]/ROADW)/2){
     P.speed=Math.max(c.speed*.6,MAXS*.15);P.x+=(P.x<c.x?-1:1)*.18;P.bonkT=.6;P.shake=.45;
     mMsg(P,c.type==='animal'?({'🐄':'MOOO! 🐄','🐒':'Ooh ooh aah! 🐒','🐪':'Hrrmph! 🐪'}[c.e]||'BONK!'):rnd(['BONK! 💥','OOPS! 😵','BOING! 🤪']));
-    SFX.thud(k==='Nithila'?-.6:.6);break}}
+    SFX.thud(lpan(k)*1.2);break}}
  }
- const A=M.P.Nithila,B=M.P.Seyon;let dz=B.z-A.z;if(dz>len/2)dz-=len;if(dz<-len/2)dz+=len;
+ const A=M.P[PL[0]],B=M.P[PL[1]];let dz=B.z-A.z;if(dz>len/2)dz-=len;if(dz<-len/2)dz+=len;
  if(!A.done&&!B.done&&Math.abs(dz)<260&&Math.abs(A.x-B.x)<.32){const d=A.x<B.x?-1:1;A.x+=d*.14;B.x-=d*.14;A.shake=B.shake=.25;tone(140,.12,'square',.06)}}
 
 function mAI(P,dt){const seg=segAt(P.z+PLZ),pz=P.z+PLZ;P.laneT-=dt;
@@ -1350,7 +1411,7 @@ function mAI(P,dt){const seg=segAt(P.z+PLZ),pz=P.z+PLZ;P.laneT-=dt;
  P.N=P.aiN>0;
  if(blocked&&P.honk<=0&&Math.random()<.02)mHonk(P.k)}
 
-function mHonk(k){const P=M.P[k];if(!P||!M.active||P.honk>0)return;P.honk=1.2;const pan=k==='Nithila'?-.6:.6;
+function mHonk(k){const P=M.P[k];if(!P||!M.active||P.honk>0)return;P.honk=1.2;const pan=lpan(k)*1.2;
  tone(392,.24,'square',.07,0,null,pan);tone(494,.24,'square',.07,.04,null,pan);
  mMsg(P,'📯 BEEP BEEP!');const O=M.P[other(k)];let dz=O.z-P.z;if(dz>M.len/2)dz-=M.len;if(dz<-M.len/2)dz+=M.len;
  mMsg(O,`📯 ${k} honked! 😝`);if(Math.abs(dz)<2500&&Math.abs(O.x-P.x)<.7)O.x+=(O.x>=P.x?1:-1)*.3;
@@ -1363,8 +1424,9 @@ function shade(hex,f){const n=parseInt(hex.slice(1),16);let r=n>>16,g=n>>8&255,b
 function flames(c,xs,y,s){for(const x of xs){const l=s*(1.2+Math.random()*1.2);c.fillStyle='#4cc9f0';c.beginPath();c.moveTo(x-s*.35,y);c.lineTo(x+s*.35,y);c.lineTo(x,y+l);c.closePath();c.fill();c.fillStyle='#ffb703';c.beginPath();c.moveTo(x-s*.18,y);c.lineTo(x+s*.18,y);c.lineTo(x,y+l*.6);c.closePath();c.fill()}}
 function helmet(c,x,y,r,k,col){c.fillStyle=col||(k?KC[k]:'#666');c.beginPath();c.arc(x,y,r,0,7);c.fill();
  c.fillStyle='rgba(255,255,255,.85)';c.fillRect(x-r*.14,y-r,r*.28,r*1.4);
- if(k==='Nithila'){c.strokeStyle='#1b1414';c.lineWidth=r*.28;c.lineCap='round';for(const s of [-1,1]){c.beginPath();c.moveTo(x+s*r*.55,y+r*.6);c.lineTo(x+s*r*.7,y+r*1.6);c.stroke();c.fillStyle='#ffd23f';c.beginPath();c.arc(x+s*r*.7,y+r*1.65,r*.18,0,7);c.fill()}}
- if(k==='Seyon'){c.fillStyle='#ff9f1c';for(let i=-2;i<=2;i++){const a=-Math.PI/2+i*.45;c.beginPath();c.moveTo(x+Math.cos(a-.15)*r,y+Math.sin(a-.15)*r);c.lineTo(x+Math.cos(a)*r*1.35,y+Math.sin(a)*r*1.35);c.lineTo(x+Math.cos(a+.15)*r,y+Math.sin(a+.15)*r);c.closePath();c.fill()}}}
+ if(k&&AV[k].hair==='puffs'){for(const s of [-1,1]){c.fillStyle='#1b1414';c.beginPath();c.arc(x+s*r*.85,y-r*.75,r*.42,0,7);c.fill();c.fillStyle='#ff5fa2';c.beginPath();c.arc(x+s*r*.62,y-r*.5,r*.14,0,7);c.fill()}}
+ if(k&&AV[k].hair==='braids'){c.strokeStyle='#1b1414';c.lineWidth=r*.28;c.lineCap='round';for(const s of [-1,1]){c.beginPath();c.moveTo(x+s*r*.55,y+r*.6);c.lineTo(x+s*r*.7,y+r*1.6);c.stroke();c.fillStyle='#ffd23f';c.beginPath();c.arc(x+s*r*.7,y+r*1.65,r*.18,0,7);c.fill()}}
+ if(k&&AV[k].hair==='curly'){c.fillStyle='#ff9f1c';for(let i=-2;i<=2;i++){const a=-Math.PI/2+i*.45;c.beginPath();c.moveTo(x+Math.cos(a-.15)*r,y+Math.sin(a-.15)*r);c.lineTo(x+Math.cos(a)*r*1.35,y+Math.sin(a)*r*1.35);c.lineTo(x+Math.cos(a+.15)*r,y+Math.sin(a+.15)*r);c.closePath();c.fill()}}}
 function plate(c,w,y,h,txt){if(w<34||!txt)return;c.fillStyle='#fff';rr(c,-w*.17,y,w*.34,h,w*.02);c.fillStyle='#111';c.font=`800 ${h*.72}px ${FNT}`;c.textAlign='center';c.textBaseline='middle';c.fillText(txt,0,y+h*.55,w*.32)}
 function carRear(c,w,col,o){const h=w*.5;
  c.fillStyle='#111';rr(c,-w*.49,-h*.36,w*.2,h*.36,w*.03);rr(c,w*.29,-h*.36,w*.2,h*.36,w*.03);
@@ -1399,7 +1461,8 @@ function autoRear(c,w,col,o){const h=w*.95;
  c.fillStyle='#3a3a3a';rr(c,-w*.3,-h*.94,w*.6,h*.3,w*.05);
  const hx=o.k?0:w*.08,hr=w*.1;c.fillStyle='#8d5a3b';c.beginPath();c.arc(hx,-h*.74,hr,0,7);c.fill();
  c.fillStyle='#1b1414';c.beginPath();c.arc(hx,-h*.78,hr*1.02,Math.PI,0);c.fill();
- if(o.k==='Nithila'){c.fillStyle='#1b1414';c.fillRect(hx-hr*1.1,-h*.76,hr*.4,hr*1.6);c.fillRect(hx+hr*.7,-h*.76,hr*.4,hr*1.6)}
+ if(o.k&&AV[o.k].hair==='braids'){c.fillStyle='#1b1414';c.fillRect(hx-hr*1.1,-h*.76,hr*.4,hr*1.6);c.fillRect(hx+hr*.7,-h*.76,hr*.4,hr*1.6)}
+ if(o.k&&AV[o.k].hair==='puffs'){c.fillStyle='#1b1414';c.beginPath();c.arc(hx-hr*.95,-h*.86,hr*.5,0,7);c.arc(hx+hr*.95,-h*.86,hr*.5,0,7);c.fill()}
  c.fillStyle='#ff2a2a';c.fillRect(-w*.42,-h*.36,w*.12,h*.06);c.fillRect(w*.3,-h*.36,w*.12,h*.06);
  plate(c,w,-h*.32,h*.1,o.name?('TN07 '+o.name.toUpperCase()):'TN09 AUTO');
  if(w>60){c.fillStyle='#7a4b00';c.font=`800 ${h*.07}px ${FNT}`;c.textAlign='center';c.fillText('AMMA BLESSINGS',0,-h*.5,w*.8)}
@@ -1527,39 +1590,39 @@ function mHud(c,W,H,P,k,T){const u=Math.max(11,Math.min(W,H)*.055),ok=other(k);
  txt(`🪙 ${P.coins}`,W-u*.5,u*3.15,u*.85,'#ffe066','right');
  // progress bar
  const bx=W*.3,bw=W*.4,byy=u*.6,tl=T.laps*M.len;c.fillStyle='rgba(0,0,0,.45)';rr(c,bx,byy-u*.18,bw,u*.36,u*.18);
- for(const kk of [ok,k]){const f=Math.min(1,tot(kk)/tl);c.font=`${u*.9}px ${EMO}`;c.textAlign='center';c.textBaseline='middle';c.fillText(kk==='Nithila'?'👧':'👦',bx+bw*f,byy)}
+ for(const kk of [ok,k]){const f=Math.min(1,tot(kk)/tl);c.font=`${u*.9}px ${EMO}`;c.textAlign='center';c.textBaseline='middle';c.fillText(AV[kk].e,bx+bw*f,byy)}
  c.font=`${u*.8}px ${EMO}`;c.fillText('🏁',bx+bw+u*.5,byy);
  // messages
  P.msgs.forEach((m,i)=>{c.globalAlpha=Math.min(1,m.life*2);const s=u*1.2*(1+Math.max(0,m.life-1.2)*1.5);txt(m.t,W/2,H*.34+i*u*1.5,s,'#fff','center');c.globalAlpha=1});
  if(M.over){c.fillStyle='rgba(0,0,0,.35)';c.fillRect(0,0,W,H);txt(M.winner===k?'🏆 WINNER!':'😅 2ND PLACE',W/2,H*.48,u*2.2,M.winner===k?'#ffe066':'#fff','center')}}
 
 /* ---------- loop, sound, input ---------- */
-function mResize(){const dpr=Math.min(window.devicePixelRatio||1,1.5);for(const k of ['Nithila','Seyon']){const cv=$('#cv-'+k);if(!cv)continue;M.cv[k]=cv;M.ctx[k]=cv.getContext('2d');
+function mResize(){const dpr=Math.min(window.devicePixelRatio||1,1.5);for(const k of PL){const cv=$('#cv-'+sid(k));if(!cv)continue;M.cv[k]=cv;M.ctx[k]=cv.getContext('2d');
  const w=Math.max(50,Math.round(cv.clientWidth*dpr)),h=Math.max(50,Math.round(cv.clientHeight*dpr));if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h}}}
 window.addEventListener('resize',()=>{if(M.loop)mResize()});
 function mLoop(t){if(!M.loop)return;const dt=M.last?Math.min(.05,(t-M.last)/1000):0;M.last=t;if(M.active)mUpdate(dt);
  if(Math.round(t/500)!==M.rsz){M.rsz=Math.round(t/500);mResize()}
- for(const k of ['Nithila','Seyon'])mRender(k);mEngine();M.raf=requestAnimationFrame(mLoop)}
-function mEngineStart(){const a=ac();if(!a)return;mEngineStop();for(const k of ['Nithila','Seyon']){const o=a.createOscillator(),f=a.createBiquadFilter(),g=a.createGain();o.type='sawtooth';o.frequency.value=50;f.type='lowpass';f.frequency.value=700;g.gain.value=0;o.connect(f);f.connect(g);out(a,g,k==='Nithila'?-.6:.6);o.start();M.eng[k]={o,g}}}
+ for(const k of PL)mRender(k);mEngine();M.raf=requestAnimationFrame(mLoop)}
+function mEngineStart(){const a=ac();if(!a)return;mEngineStop();for(const k of PL){const o=a.createOscillator(),f=a.createBiquadFilter(),g=a.createGain();o.type='sawtooth';o.frequency.value=50;f.type='lowpass';f.frequency.value=700;g.gain.value=0;o.connect(f);f.connect(g);out(a,g,lpan(k)*1.2);o.start();M.eng[k]={o,g}}}
 function mEngine(){const a=AC;if(!a)return;for(const k in M.eng){const e=M.eng[k],P=M.P[k];if(!P)continue;const sp=P.speed/MAXS;
  e.o.frequency.setTargetAtTime(45+sp*150*(P.nitroOn?1.25:1),a.currentTime,.05);e.g.gain.setTargetAtTime(S.sound&&M.loop&&!M.over&&!P.done?.035:0,a.currentTime,.05)}}
 function mEngineStop(){for(const k in M.eng){try{M.eng[k].o.stop()}catch(e){}}M.eng={}}
 
 function buildMotoMenu(){
- $('#mScore').innerHTML=`🏆 Family scoreboard: 👧 Nithila <b>${WINS.Nithila}</b> · 👦 Seyon <b>${WINS.Seyon}</b>`;
- $('#mMode').innerHTML=[['2p','👧 vs 👦 Two players'],['T','👧 I am Nithila vs 🤖'],['S','👦 I am Seyon vs 🤖']].map(([m,l])=>`<button class="${M.mode===m?'on':''}" onclick="M.mode='${m}';SFX.click();buildMotoMenu()">${l}</button>`).join('');
- $('#mAssist').innerHTML=`<button class="${M.assist?'on':''}" onclick="M.assist=!M.assist;SFX.click();buildMotoMenu()">${M.assist?'✅':'⬜'} 👶 Little-one assist: Seyon gets steering help</button>`;
- $('#mVeh').innerHTML=['Nithila','Seyon'].map(k=>`<div class="vrow"><b style="color:${KC[k]}">${k==='Nithila'?'👧 Nithila':'👦 Seyon'}</b>${Object.entries(VEH).map(([id,v])=>`<button style="--g:${KC[k]}" class="${M.veh[k]===id?'on':''}" onclick="M.veh['${k}']='${id}';SFX.click();buildMotoMenu()"><canvas width="200" height="124" data-k="${k}" data-v="${id}"></canvas><small>${v.n}</small></button>`).join('')}</div>`).join('');
+ $('#mPbar').innerHTML=pbar('motoMenu');$('#mScore').innerHTML=famScore();
+ $('#mMode').innerHTML=[['2p',`${AV[PL[0]].e} vs ${AV[PL[1]].e} Two players`],['T',`${NM(PL[0])} vs 🤖`],['S',`${NM(PL[1])} vs 🤖`]].map(([m,l])=>`<button class="${M.mode===m?'on':''}" onclick="M.mode='${m}';SFX.click();buildMotoMenu()">${l}</button>`).join('');
+ $('#mAssist').innerHTML=`<button class="${M.assist?'on':''}" onclick="M.assist=!M.assist;SFX.click();buildMotoMenu()">${M.assist?'✅':'⬜'} 👶 Little-one assist: ${youngest()} gets steering help</button>`;
+ $('#mVeh').innerHTML=PL.map(k=>`<div class="vrow"><b style="color:${KC[k]}">${NM(k)}</b>${Object.entries(VEH).map(([id,v])=>`<button style="--g:${KC[k]}" class="${M.veh[k]===id?'on':''}" onclick="M.veh['${k}']='${id}';SFX.click();buildMotoMenu()"><canvas width="200" height="124" data-k="${k}" data-v="${id}"></canvas><small>${v.n}</small></button>`).join('')}</div>`).join('');
  document.querySelectorAll('#mVeh canvas').forEach(cv=>{const c=cv.getContext('2d'),k=cv.dataset.k,v=cv.dataset.v,w=v==='bike'?52:v==='kart'?110:150;drawVehicle(c,v,100,116,w,KC[k],{name:k,k})});
  $('#mGrid').innerHTML=TRACKS.map((t,i)=>`<button class="tcard" onclick="startMoto(${i})"><div class="top" style="background:${t.col}"><span class="e">${t.emoji}</span><span><b>${t.name}</b><i>${t.sub}</i></span></div><div class="body">${t.laps} laps · ${t.obstacle?`watch out for ${t.obstacle}!`:'neon lights & city traffic'}<div style="margin-top:4px;font-weight:800">${MBEST[t.id]?`⏱️ Best: ${MBEST[t.id].t}s by ${MBEST[t.id].k}`:'⏱️ No record yet'}</div></div></button>`).join('')}
 
 function startMoto(i){ac();SFX.click();M.track=i;go('moto');setupMoto()}
 function stopMoto(){M.run++;M.loop=false;cancelAnimationFrame(M.raf);M.active=false;mEngineStop();$('#mcd').classList.remove('on')}
 function leaveMoto(){stopMoto();closeSheet();go('motoMenu')}
-function setupMoto(){stopMoto();const T=MT();M.cpu=M.mode==='T'?'Seyon':M.mode==='S'?'Nithila':null;
- M.segs=mBuild(T);M.len=M.segs.length*MSEG;M.cars=mCars(T,M.len);M.P={Nithila:mPlayer('Nithila'),Seyon:mPlayer('Seyon')};M.over=false;M.winner=null;M.active=false;
- $('#mTitle').innerHTML=`${T.emoji} ${T.name}<small>${VEH[M.veh.Nithila].e} Nithila vs ${VEH[M.veh.Seyon].e} Seyon · ${T.laps} laps</small>`;
- for(const k of ['Nithila','Seyon']){const el=$('#ctl-'+k);el.className='mctl'+(M.cpu===k?' hide':'');
+function setupMoto(){stopMoto();const T=MT();M.cpu=M.mode==='T'?PL[1]:M.mode==='S'?PL[0]:null;
+ M.segs=mBuild(T);M.len=M.segs.length*MSEG;M.cars=mCars(T,M.len);M.P={};PL.forEach(k=>{M.P[k]=mPlayer(k);$('#mh-'+sid(k)).style.setProperty('--c',KC[k])});M.over=false;M.winner=null;M.active=false;
+ $('#mTitle').innerHTML=`${T.emoji} ${T.name}<small>${VEH[M.veh[PL[0]]].e} ${PL[0]} vs ${VEH[M.veh[PL[1]]].e} ${PL[1]} · ${T.laps} laps</small>`;
+ for(const k of PL){const el=$('#ctl-'+sid(k));el.className='mctl'+(M.cpu===k?' hide':'');
   el.innerHTML=`<button data-a="L">◀</button><div class="mm"><button data-a="H" class="hrn">📯</button><button data-a="N" class="nit">🔥</button></div><button data-a="R">▶</button>`;
   el.querySelectorAll('button').forEach(b=>{const a=b.dataset.a;
    const on=e=>{e.preventDefault();try{b.setPointerCapture(e.pointerId)}catch(_){}b.classList.add('on');if(a==='H')mHonk(k);else M.P[k][a]=true};
@@ -1568,7 +1631,7 @@ function setupMoto(){stopMoto();const T=MT();M.cpu=M.mode==='T'?'Seyon':M.mode==
  mResize();M.loop=true;M.last=0;M.raf=requestAnimationFrame(mLoop);mCountdown()}
 
 async function mCountdown(){const id=M.run,cd=$('#mcd'),T=MT();cd.classList.add('on');
- cd.innerHTML=`<div class="intro">${T.emoji} ${T.name}<br><small style="font-size:.5em;opacity:.9">${M.cpu?'Steer with ◀ ▶ (or arrow keys / A D), 🔥 nitro, 📯 horn':'👧 Nithila: A D steer · W nitro · S horn<br>👦 Seyon: ← → steer · ↑ nitro · ↓ horn'}</small></div>`;SFX.boing();
+ cd.innerHTML=`<div class="intro">${T.emoji} ${T.name}<br><small style="font-size:.5em;opacity:.9">${M.cpu?'Steer with ◀ ▶ (or arrow keys / A D), 🔥 nitro, 📯 horn':`${NM(PL[0])}: A D steer · W nitro · S horn<br>${NM(PL[1])}: ← → steer · ↑ nitro · ↓ horn`}</small></div>`;SFX.boing();
  await wait(2800);if(id!==M.run)return;mEngineStart();
  for(const l of ['🔴⚫⚫','🔴🔴⚫','🔴🔴🔴']){cd.innerHTML=`<div class="n lights">${l}</div>`;tone(440,.2,'square',.08);await wait(700);if(id!==M.run)return}
  cd.innerHTML=`<div class="n lights">🟢🟢🟢<br>GO!</div>`;tone(880,.45,'square',.1);M.active=true;M.t0=performance.now();
@@ -1580,21 +1643,21 @@ function mFinish(k){if(M.over)return;M.over=true;M.active=false;M.winner=k;const
  SFX.win();const id=M.run;setTimeout(()=>{if(id===M.run){mResult(k,t,rec);M.loop=false;mEngineStop()}},2400)}
 
 function mResult(k,t,rec){const T=MT(),o=other(k),PW=M.P[k],PL=M.P[o];
- const wl={Nithila:'Zoom zoom! Catch me if you can, Seyon! 😎',Seyon:'Vroom vroom! Me champion! 🏆🦖'},ll={Nithila:'Next time I\'m using NITRO the whole way! 😤',Seyon:'Me want rematch! 😭🚗'};
+ const wl={Nithila:`Zoom zoom! Catch me if you can, ${o}! 😎`,Joshitha:'Wheee! I\'m the fastest princess racer! 👑🏎️',Seyon:'Vroom vroom! Me champion! 🏆🦖'},ll={Nithila:'Next time I\'m using NITRO the whole way! 😤',Joshitha:'I was waving at the cows… 🐄👋',Seyon:'Me want rematch! 😭🚗'};
  $('#sheetCard').innerHTML=`<canvas id="resCv" width="320" height="170" style="width:min(300px,80%);display:block;margin:0 auto"></canvas>
  <h3>🏆 ${k} wins ${T.name}!</h3><div class="pts">⏱️ ${t} seconds${rec?' · 🎉 NEW TRACK RECORD!':''}</div>
  <div style="font-size:18px;line-height:1.4"><b>${k}:</b> ${wl[k]}<br><b>${o}:</b> ${ll[o]}</div>
- <div style="margin:8px 0;font-size:16px;color:#6b5f86">🪙 Coins: Nithila ${M.P.Nithila.coins} · Seyon ${M.P.Seyon.coins}. Now a high-five! ✋</div>
- <div class="score" style="color:#2b2140">🏆 Family scoreboard: 👧 Nithila ${WINS.Nithila} · 👦 Seyon ${WINS.Seyon}</div>
+ <div style="margin:8px 0;font-size:16px;color:#6b5f86">🪙 Coins: ${PL.map(x=>`${x} ${M.P[x].coins}`).join(' · ')}. Now a high-five! ✋</div>
+ <div class="score" style="color:#2b2140">${famScore()}</div>
  <div class="row"><button class="btn" onclick="closeSheet();setupMoto()">🔁 Rematch</button><button class="btn purple" onclick="leaveMoto()">🏎️ Other tracks</button></div>`;
  $('#sheet').classList.add('on');
  const c=$('#resCv').getContext('2d'),g=c.createLinearGradient(0,0,0,170);g.addColorStop(0,'#3a0d5c');g.addColorStop(1,'#ff2bd6');c.fillStyle=g;rr(c,0,0,320,170,18);
  c.font=`60px ${EMO}`;c.textAlign='center';c.textBaseline='middle';c.fillText('🏆',260,70);c.fillText('🎉',60,60);
  const v=PW.veh;drawVehicle(c,v,160,160,v==='bike'?70:v==='kart'?150:190,KC[k],{name:k,k})}
 
-const MKEYS={a:['Nithila','L'],d:['Nithila','R'],w:['Nithila','N'],s:['Nithila','H'],arrowleft:['Seyon','L'],arrowright:['Seyon','R'],arrowup:['Seyon','N'],arrowdown:['Seyon','H']};
+const MKEYS={a:[0,'L'],d:[0,'R'],w:[0,'N'],s:[0,'H'],arrowleft:[1,'L'],arrowright:[1,'R'],arrowup:[1,'N'],arrowdown:[1,'H']};
 function mKey(e,down){if(!$('#moto').classList.contains('on'))return;const m=MKEYS[e.key.toLowerCase()];if(!m)return;e.preventDefault();
- let [k,a]=m;if(M.cpu===k)k=other(k);const P=M.P[k];if(!P)return;if(a==='H'){if(down&&!e.repeat)mHonk(k)}else P[a]=down}
+ let k=PL[m[0]],a=m[1];if(M.cpu===k)k=other(k);const P=M.P[k];if(!P)return;if(a==='H'){if(down&&!e.repeat)mHonk(k)}else P[a]=down}
 document.addEventListener('keydown',e=>mKey(e,true));document.addEventListener('keyup',e=>mKey(e,false));
 
 /* =====================================================
@@ -1621,8 +1684,8 @@ const CTRACKS=[
 const CH={track:0,mode:'2p',assist:true,cpu:null,run:0,loop:false,active:false,over:false,winner:null,P:{},obs:[],stars:[],t0:0,el:0,last:0,raf:0,cv:{},ctx:{}};
 const CT=()=>CTRACKS[CH.track];
 const C_VMAX=11,C_TAP=1.5,C_DRAG=1.1,C_G=18,C_JV=6.8,CB={base:5.4,ramp:.035,cap:8.8,k:.4,th:12,help:1.45,stun:.55,keep:.4,lunge:2.2};
-const cAssist=k=>k==='Seyon'&&CH.assist&&CH.cpu!=='Seyon';
-const cPan=k=>k==='Nithila'?-.5:.5;
+const cAssist=k=>k===youngest()&&CH.assist&&CH.cpu!==k;
+const cPan=k=>lpan(k);
 
 function cPlayer(k){return {k,x:0,v:0,jy:0,vy:0,ph:0,stun:0,boost:0,esc:cAssist(k)?2:1,str:null,out:false,done:false,hit:new Set(),got:new Set(),
  msgs:[],cpu:CH.cpu===k,acc:0,dec:new Map(),shake:0,snd:1.5,beat:0,
@@ -1644,12 +1707,12 @@ function cJump(k){if(!CH.active)return;const P=CH.P[k];if(!P||P.out||P.done||P.s
 
 /* ---------- update ---------- */
 function cUpdate(dt){const T=CT();CH.el+=dt;
- for(const k of ['Nithila','Seyon']){const P=CH.P[k],C=P.ch;
+ for(const k of PL){const P=CH.P[k],C=P.ch;
   P.shake=Math.max(0,P.shake-dt);P.msgs.forEach(m=>m.life-=dt);P.msgs=P.msgs.filter(m=>m.life>0);
   P.ph+=Math.max(P.v,P.done?2:0)*dt*1.15;C.ph+=Math.max(C.v,1.2)*dt*.95;
   if(P.out)continue;
   if(P.done){P.v=Math.max(2.5,P.v-6*dt);P.x+=P.v*dt;if(P.x>T.len+5)P.v=0;continue}
-  if(P.cpu){const rate=P.str?8.5:6.3+Math.sin(CH.el*.7+(k==='Seyon'?2:0))*.8;P.acc+=dt*rate;while(P.acc>=1){P.acc-=1;cTap(k)}}
+  if(P.cpu){const rate=P.str?8.5:6.3+Math.sin(CH.el*.7+slot(k)*2)*.8;P.acc+=dt*rate;while(P.acc>=1){P.acc-=1;cTap(k)}}
   if(P.str){P.str.t-=dt;C.x=P.x-.35;if(P.str.t<=0){cCaught(P);continue}continue}
   P.v-=P.v*C_DRAG*dt;if(P.stun>0){P.stun-=dt;P.v=Math.min(P.v,1.5)}
   if(P.boost>0)P.boost-=dt;
@@ -1692,16 +1755,18 @@ function cEnd(w){if(CH.over)return;CH.over=true;CH.winner=w;CH.active=false;
 /* ---------- character art (canvas, side view facing right) ---------- */
 function seg2(c,x1,y1,x2,y2,w,col){c.strokeStyle=col;c.lineWidth=w;c.lineCap='round';c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke()}
 function ik(hx,hy,fx,fy,l1,l2,bend){const dx=fx-hx,dy=fy-hy;let d=Math.min(Math.hypot(dx,dy),l1+l2-.01);const a=Math.atan2(dy,dx),A=Math.acos(Math.max(-1,Math.min(1,(l1*l1+d*d-l2*l2)/(2*l1*Math.max(d,.01)))));const g=a-bend*A;return [hx+Math.cos(g)*l1,hy+Math.sin(g)*l1]}
-const CK={Nithila:{shirt:'#ff3d8b',pants:'#5a189a',shoe:'#ffd23f',cap:'#ff3d8b'},Seyon:{shirt:'#2f7bff',pants:'#1d3557',shoe:'#ff9f1c',cap:'#2f7bff'}};
-function kidHead(c,k,x,y,o={}){const girl=k==='Nithila';
- if(girl&&!o.cap){for(let i=0;i<6;i++){const sw=Math.sin((o.ph||0)*1.2+i*.6)*(1.5+i*.6);c.fillStyle=HAIR;c.beginPath();c.arc(x-11-i*3.2,y+2+i*4.6+sw*.3,4.6-i*.25,0,7);c.fill();
+const CK=Object.fromEntries(AVK.map(k=>[k,{shirt:AV[k].col,pants:AV[k].pants,shoe:AV[k].shoe,cap:AV[k].col}]));
+function kidHead(c,k,x,y,o={}){const st=AV[k].hair,girl=AV[k].girl;
+ if(st==='puffs'&&!o.cap){const sw=Math.sin((o.ph||0)*1.2)*1.5;c.fillStyle=HAIR;c.beginPath();c.arc(x-12,y-13+sw,8.5,0,7);c.fill();c.beginPath();c.arc(x+4,y-17-sw*.5,7.5,0,7);c.fill();
+  c.fillStyle='#ff5fa2';c.beginPath();c.arc(x-7,y-7+sw,2.4,0,7);c.fill();c.beginPath();c.arc(x+5,y-10,2.2,0,7);c.fill()}
+ if(st==='braids'&&!o.cap){for(let i=0;i<6;i++){const sw=Math.sin((o.ph||0)*1.2+i*.6)*(1.5+i*.6);c.fillStyle=HAIR;c.beginPath();c.arc(x-11-i*3.2,y+2+i*4.6+sw*.3,4.6-i*.25,0,7);c.fill();
   if(i<4){c.fillStyle='#fff';c.beginPath();c.arc(x-9-i*3.4,y-2+i*4.6+sw*.3,1.6,0,7);c.fill()}}
   c.fillStyle='#ffd23f';c.beginPath();c.arc(x-30,y+29+Math.sin((o.ph||0)*1.2+3.6)*1.5,3.6,0,7);c.fill()}
  c.fillStyle=SKIN;c.beginPath();c.arc(x-5,y+2,3.5,0,7);c.fill();
  c.fillStyle=HAIR;c.beginPath();c.arc(x-1,y-1,14,0,7);c.fill();
  c.fillStyle=SKIN;c.beginPath();c.ellipse(x+3,y+2,11,12.5,0,0,7);c.fill();
  if(o.cap){c.fillStyle=o.cap;c.beginPath();c.arc(x,y-1,14.5,Math.PI*.95,Math.PI*2.12);c.fill();c.fillStyle='rgba(255,255,255,.5)';c.fillRect(x-10,y-12,16,3)}
- else if(!girl){c.fillStyle=HAIR;[[-6,-12],[1,-14],[8,-12],[-11,-6]].forEach(([a,b])=>{c.beginPath();c.arc(x+a,y+b,5.5,0,7);c.fill()})}
+ else if(st==='curly'){c.fillStyle=HAIR;[[-6,-12],[1,-14],[8,-12],[-11,-6]].forEach(([a,b])=>{c.beginPath();c.arc(x+a,y+b,5.5,0,7);c.fill()})}
  else{c.fillStyle=HAIR;c.beginPath();c.ellipse(x+4,y-10,10,4.5,-.2,0,7);c.fill()}
  c.fillStyle='#ff6f6f';c.globalAlpha=.4;c.beginPath();c.arc(x+8,y+6,3.5,0,7);c.fill();c.globalAlpha=1;
  if(o.goggles){c.fillStyle='#222';c.fillRect(x-2,y-4,16,4);c.fillStyle='#4cc9f0';c.beginPath();c.ellipse(x+9,y-2,4.5,3.8,0,0,7);c.fill()}
@@ -1712,7 +1777,7 @@ function kidHead(c,k,x,y,o={}){const girl=k==='Nithila';
  if(girl&&!o.goggles){c.fillStyle='#d00';c.beginPath();c.arc(x+11,y-6.5,1,0,7);c.fill()}}
 
 function drawKidRun(c,k,x,y,h,ph,o){const K=CK[k],u=h/100;c.save();c.translate(x,y);c.scale(u,u);
- const bob=-Math.abs(Math.sin(ph))*2.5,hip=[0,-45+bob],sh=[7,-74+bob],girl=k==='Nithila';
+ const bob=-Math.abs(Math.sin(ph))*2.5,hip=[0,-45+bob],sh=[7,-74+bob],girl=AV[k].girl;
  const leg=(p,dark)=>{const fx=3+Math.sin(p)*20,fy=-Math.max(0,Math.cos(p))*13;const kn=ik(hip[0],hip[1],fx,fy,23,23,1);const col=dark?shade(K.pants,-.25):K.pants;
   if(girl){seg2(c,hip[0],hip[1],kn[0],kn[1],10,col);seg2(c,kn[0],kn[1],fx,fy,8,col)}else{seg2(c,kn[0],kn[1],fx,fy,7.5,dark?shade(SKIN,-.2):SKIN);seg2(c,hip[0],hip[1],(hip[0]+kn[0])/2,(hip[1]+kn[1])/2,11,col)}
   c.fillStyle=dark?shade(K.shoe,-.25):K.shoe;c.beginPath();c.ellipse(fx+4,fy-1,7,4,0,0,7);c.fill()};
@@ -1735,7 +1800,7 @@ function drawBike(c,col,ph){const w=[[-25,-15],[26,-15]];
  c.fillStyle='#222';c.beginPath();c.ellipse(-10,-45,8,3,0,0,7);c.fill();c.fillStyle='#e63946';c.beginPath();c.arc(-37,-28,2.5,0,7);c.fill();
  c.strokeStyle='#888';c.lineWidth=2;c.beginPath();c.arc(0,-17,5,0,7);c.stroke()}
 function drawKidCycle(c,k,x,y,h,ph,o){const K=CK[k],u=h/100;c.save();c.translate(x,y);c.scale(u,u);
- const hip=[-9,-49],sh=[6,-73],bar=[20,-50],girl=k==='Nithila';
+ const hip=[-9,-49],sh=[6,-73],bar=[20,-50],girl=AV[k].girl;
  const leg=(a,dark)=>{const fx=Math.cos(a)*8,fy=-17+Math.sin(a)*8,kn=ik(hip[0],hip[1],fx,fy,21,21,1),col=dark?shade(K.pants,-.25):K.pants;
   seg2(c,hip[0],hip[1],kn[0],kn[1],10,col);seg2(c,kn[0],kn[1],fx,fy,7.5,girl?col:(dark?shade(SKIN,-.2):SKIN));c.fillStyle=dark?shade(K.shoe,-.25):K.shoe;c.beginPath();c.ellipse(fx+2,fy,6,3.5,0,0,7);c.fill()};
  leg(ph*1.6+Math.PI,true);
@@ -1926,7 +1991,7 @@ function cRender(k){const P=CH.P[k],c=CH.ctx[k],cv=CH.cv[k];if(!P||!c)return;con
 
 function cHud(c,W,H,P,k,T,t){const u=Math.max(11,Math.min(W*.03,H*.07)),O=CH.P[other(k)];c.textBaseline='alphabetic';c.lineJoin='round';
  const txt=(s,x,y,size,col,al='left')=>{c.font=`800 ${size}px ${FNT}`;c.textAlign=al;c.strokeStyle='rgba(0,0,0,.75)';c.lineWidth=size*.2;c.strokeText(s,x,y);c.fillStyle=col;c.fillText(s,x,y)};
- c.fillStyle=KC[k];rr(c,u*.4,u*.4,u*7.6,u*1.7,u*.5);txt(k==='Nithila'?'👧 NITHILA':'👦 SEYON',u*.8,u*1.65,u*1.05,'#fff');
+ c.fillStyle=KC[k];rr(c,u*.4,u*.4,u*7.6,u*1.7,u*.5);txt(`${AV[k].e} ${k.toUpperCase()}`,u*.8,u*1.65,u*1.05,'#fff');
  if(P.cpu){txt('🤖',u*8.5,u*1.65,u*1,'#fff')}
  const left=Math.max(0,Math.ceil(T.len-P.x));txt(P.done?'🏁 SAFE!':`🏁 ${left} m to go`,u*.6,u*3.3,u*.9,'#fff');
  txt('💪'.repeat(P.esc)||'💪✖',u*.6,u*4.6,u*.75,'#fff');
@@ -1934,8 +1999,8 @@ function cHud(c,W,H,P,k,T,t){const u=Math.max(11,Math.min(W*.03,H*.07)),O=CH.P[o
  const gap=P.x-P.ch.x;if(!P.out&&!P.done){const col=gap<6?'#ff4d6d':gap<12?'#ffd23f':'#80ed99';txt(`${T.ico} ${Math.max(0,Math.round(gap))} m behind`,W-u*.6,u*1.65,u*.95,col,'right');
   txt(`${Math.round(P.v/C_VMAX*100)}% speed`,W-u*.6,u*2.9,u*.7,'#fff','right')}
  const bx=W*.32,bw=W*.36,by=u*3.1;if(bw>60){c.fillStyle='rgba(0,0,0,.45)';rr(c,bx,by-u*.25,bw,u*.5,u*.25);c.font=`${u*.95}px ${EMO}`;c.textAlign='center';c.textBaseline='middle';
-  const pos=x=>bx+bw*Math.max(0,Math.min(1,x/T.len));c.fillText('🏁',bx+bw+u*.6,by);c.globalAlpha=.55;c.fillText(k==='Nithila'?'👦':'👧',pos(O.x),by-u*.55);c.globalAlpha=1;
-  c.fillText(T.ico,pos(P.ch.x),by);c.fillText(k==='Nithila'?'👧':'👦',pos(P.x),by);c.textBaseline='alphabetic'}
+  const pos=x=>bx+bw*Math.max(0,Math.min(1,x/T.len));c.fillText('🏁',bx+bw+u*.6,by);c.globalAlpha=.55;c.fillText(AV[O.k].e,pos(O.x),by-u*.55);c.globalAlpha=1;
+  c.fillText(T.ico,pos(P.ch.x),by);c.fillText(AV[k].e,pos(P.x),by);c.textBaseline='alphabetic'}
  P.msgs.forEach((m,i)=>{c.globalAlpha=Math.min(1,m.life*2);const s=u*1.25*(1+Math.max(0,m.life-1.2)*.8);txt(m.t,W/2,H*.4+i*u*1.6,s,'#fff','center');c.globalAlpha=1});
  if(P.str){const f=P.str.t/3.6;txt(`TAP ${T.verb}! ${P.str.left} 💪`,W/2,H*.62,u*1.6,'#ffe066','center');c.fillStyle='rgba(0,0,0,.5)';rr(c,W*.3,H*.66,W*.4,u*.6,u*.3);c.fillStyle=f>.35?'#80ed99':'#ff4d6d';rr(c,W*.3,H*.66,W*.4*f,u*.6,u*.3)}
  if(P.out){c.fillStyle='rgba(20,0,30,.55)';c.fillRect(0,0,W,H);txt(T.id==='bloop'?'GULP! 🐋':T.id==='kattai'?'TOK! 🪵':T.id==='kadal'?'SPLASH! 🌊':'CAUGHT! 🧟',W/2,H*.42,u*2.4,'#c6ff6b','center');
@@ -1943,59 +2008,59 @@ function cHud(c,W,H,P,k,T,t){const u=Math.max(11,Math.min(W*.03,H*.07)),O=CH.P[o
  if(CH.over&&!P.out){c.fillStyle='rgba(0,0,0,.35)';c.fillRect(0,0,W,H);txt(CH.winner===k?'🏆 WINNER!':P.done?'😅 SAFE, 2ND!':'⏱️ TOO LATE!',W/2,H*.5,u*2.4,CH.winner===k?'#ffe066':'#fff','center')}}
 
 /* ---------- loop ---------- */
-function cResize(){const dpr=Math.min(window.devicePixelRatio||1,1.5);for(const k of ['Nithila','Seyon']){const cv=$('#cc-'+k);if(!cv)continue;CH.cv[k]=cv;CH.ctx[k]=cv.getContext('2d');
+function cResize(){const dpr=Math.min(window.devicePixelRatio||1,1.5);for(const k of PL){const cv=$('#cc-'+sid(k));if(!cv)continue;CH.cv[k]=cv;CH.ctx[k]=cv.getContext('2d');
  const w=Math.max(50,Math.round(cv.clientWidth*dpr)),h=Math.max(50,Math.round(cv.clientHeight*dpr));if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h}}}
 window.addEventListener('resize',()=>{if(CH.loop)cResize()});
 function cLoop(t){if(!CH.loop)return;const dt=CH.last?Math.min(.05,(t-CH.last)/1000):0;CH.last=t;if(CH.active)cUpdate(dt);
- if(Math.round(t/500)!==CH.rsz){CH.rsz=Math.round(t/500);cResize()}for(const k of ['Nithila','Seyon'])cRender(k);CH.raf=requestAnimationFrame(cLoop)}
+ if(Math.round(t/500)!==CH.rsz){CH.rsz=Math.round(t/500);cResize()}for(const k of PL)cRender(k);CH.raf=requestAnimationFrame(cLoop)}
 
 /* ---------- menu & flow ---------- */
 function buildChaseMenu(){
- $('#cScore').innerHTML=`🏆 Family scoreboard: 👧 Nithila <b>${WINS.Nithila}</b> · 👦 Seyon <b>${WINS.Seyon}</b>`;
- $('#cMode').innerHTML=[['2p','👧 vs 👦 Two players'],['T','👧 I am Nithila vs 🤖'],['S','👦 I am Seyon vs 🤖']].map(([m,l])=>`<button class="${CH.mode===m?'on':''}" onclick="CH.mode='${m}';SFX.click();buildChaseMenu()">${l}</button>`).join('');
- $('#cAssist').innerHTML=`<button class="${CH.assist?'on':''}" onclick="CH.assist=!CH.assist;SFX.click();buildChaseMenu()">${CH.assist?'✅':'⬜'} 👶 Little-one help: Seyon auto-jumps, gets an extra wriggle &amp; a slower monster</button>`;
+ $('#cPbar').innerHTML=pbar('chaseMenu');$('#cScore').innerHTML=famScore();
+ $('#cMode').innerHTML=[['2p',`${AV[PL[0]].e} vs ${AV[PL[1]].e} Two players`],['T',`${NM(PL[0])} vs 🤖`],['S',`${NM(PL[1])} vs 🤖`]].map(([m,l])=>`<button class="${CH.mode===m?'on':''}" onclick="CH.mode='${m}';SFX.click();buildChaseMenu()">${l}</button>`).join('');
+ $('#cAssist').innerHTML=`<button class="${CH.assist?'on':''}" onclick="CH.assist=!CH.assist;SFX.click();buildChaseMenu()">${CH.assist?'✅':'⬜'} 👶 Little-one help: ${youngest()} auto-jumps, gets an extra wriggle &amp; a slower monster</button>`;
  const tl={run:'🏃 Running',cycle:'🚴 Cycling',swim:'🏊 Swimming',deep:'🤿 Deep-sea swimming'};
  $('#cGrid').innerHTML=CTRACKS.map((t,i)=>`<button class="tcard" onclick="startChase(${i})"><canvas class="cprev" width="520" height="230" id="cp-${i}"></canvas><div class="top" style="background:${t.col}"><span class="e">${t.emoji}</span><span><b>${t.name}</b><i>${t.sub}</i></span></div><div class="body"><b>${tl[t.type]}</b> · ${t.len} m to the finish<br>Chaser: <b>${t.cname}</b></div></button>`).join('');
  CTRACKS.forEach((T,i)=>{const cv=$('#cp-'+i),c=cv.getContext('2d'),W=cv.width,H=cv.height,ppm=H/5.6,camX=-3.2;
   const L=({run:bgRun,cycle:bgCycle,swim:bgSwim,deep:bgDeep})[T.type](c,W,H,camX,ppm,1.3),ground=T.type==='run'||T.type==='cycle';
   const chY=ground?L.gy:T.type==='swim'?L.ky+ppm*.15:L.ky,ch_h={zombie:ppm*1.95,kattai:ppm*2.15,kadal:ppm*2.7,bloop:ppm*2.2}[T.id];
   drawChaser(c,T.id,T.id==='bloop'?W*.44:W*.3,chY,ch_h,1.1,{close:true});
-  drawKidAny(c,'Nithila',T.type,W*.66,ground?L.gy:L.ky,ppm*1.55*(ground?1:1.5),.9,{scared:true});
-  drawKidAny(c,'Seyon',T.type,W*.88,ground?L.gy:L.ky,ppm*1.55*.8*(ground?1:1.5),2.4,{scared:true});
+  drawKidAny(c,PL[0],T.type,W*.66,ground?L.gy:L.ky,ppm*1.55*AV[PL[0]].s*(ground?1:1.5),.9,{scared:true});
+  drawKidAny(c,PL[1],T.type,W*.88,ground?L.gy:L.ky,ppm*1.55*AV[PL[1]].s*(ground?1:1.5),2.4,{scared:true});
   if(T.type==='swim')bgSwimFront(c,W,H,camX,ppm,1.3)})}
 
 function startChase(i){ac();SFX.click();CH.track=i;go('chase');setupChase()}
 function stopChase(){CH.run++;CH.loop=false;cancelAnimationFrame(CH.raf);CH.active=false;$('#ccd').classList.remove('on')}
 function leaveChase(){stopChase();closeSheet();go('chaseMenu')}
-function setupChase(){stopChase();const T=CT();CH.cpu=CH.mode==='T'?'Seyon':CH.mode==='S'?'Nithila':null;
- const L=cLevel(T);CH.obs=L.obs;CH.stars=L.stars;CH.P={Nithila:cPlayer('Nithila'),Seyon:cPlayer('Seyon')};CH.over=false;CH.winner=null;CH.active=false;CH.el=0;
+function setupChase(){stopChase();const T=CT();CH.cpu=CH.mode==='T'?PL[1]:CH.mode==='S'?PL[0]:null;
+ const L=cLevel(T);CH.obs=L.obs;CH.stars=L.stars;CH.P={};PL.forEach(k=>{CH.P[k]=cPlayer(k);$('#cl-'+sid(k)).style.setProperty('--c',AV[k].col)});CH.over=false;CH.winner=null;CH.active=false;CH.el=0;
  $('#cTitle').innerHTML=`${T.emoji} ${T.name}<small>Escape ${T.cname}! · ${T.len} m to the finish</small>`;
- for(const k of ['Nithila','Seyon']){const el=$('#cctl-'+k);el.className='cctl'+(CH.cpu===k?' hide':'');const kj=k==='Nithila'?'W':'↑',kr=k==='Nithila'?'A / D':'← / →';
+ for(const k of PL){const el=$('#cctl-'+sid(k));el.className='cctl'+(CH.cpu===k?' hide':'');const kj=slot(k)===0?'W':'↑',kr=slot(k)===0?'A / D':'← / →';
   el.innerHTML=`<button class="jmp" data-a="J"><b>${T.type==='swim'?'🐬':'⬆️'}</b>JUMP<small>${kj}</small></button><button class="run" data-a="R">${T.vi} ${T.verb}!<small>tap tap tap · ${kr}</small></button>`;
   el.querySelectorAll('button').forEach(b=>{const a=b.dataset.a;b.addEventListener('pointerdown',e=>{e.preventDefault();b.classList.add('on');if(a==='R')cTap(k);else cJump(k)});
    const off=()=>b.classList.remove('on');b.addEventListener('pointerup',off);b.addEventListener('pointercancel',off);b.addEventListener('pointerleave',off);b.addEventListener('contextmenu',e=>e.preventDefault())})}
  cResize();CH.loop=true;CH.last=0;CH.raf=requestAnimationFrame(cLoop);cCountdown()}
 async function cCountdown(){const id=CH.run,cd=$('#ccd'),T=CT();cd.classList.add('on');
- cd.innerHTML=`<div class="intro">${T.intro}<br><small style="font-size:.5em;opacity:.9">${CH.cpu?`Tap ${T.verb} fast, JUMP over things!`:`👧 Nithila: A / D ${T.verb.toLowerCase()} · W jump<br>👦 Seyon: ← / → ${T.verb.toLowerCase()} · ↑ jump`}</small></div>`;
+ cd.innerHTML=`<div class="intro">${T.intro}<br><small style="font-size:.5em;opacity:.9">${CH.cpu?`Tap ${T.verb} fast, JUMP over things!`:`${NM(PL[0])}: A / D ${T.verb.toLowerCase()} · W jump<br>${NM(PL[1])}: ← / → ${T.verb.toLowerCase()} · ↑ jump`}</small></div>`;
  cMonsterSound(T.id,0);await wait(3200);if(id!==CH.run)return;
  for(const n of ['3','2','1']){cd.innerHTML=`<div class="n">${n}</div>`;tone(440,.15,'square',.08);await wait(700);if(id!==CH.run)return}
  cd.innerHTML=`<div class="n">${T.verb}!</div>`;tone(880,.4,'square',.1);CH.active=true;CH.t0=performance.now();
  await wait(550);if(id!==CH.run)return;cd.classList.remove('on')}
 function cResult(w){const T=CT(),t=((performance.now()-CH.t0)/1000).toFixed(1);
- const lines={Nithila:'Hehe! Too slow, monster! 😎 Amma, I won!',Seyon:'Me FAST! Monster no catch Seyon! 🦖💨'};
+ const lines={Nithila:'Hehe! Too slow, monster! 😎 Amma, I won!',Joshitha:'Bye bye monster! I\'m too speedy and too cute! 💃✨',Seyon:'Me FAST! Monster no catch Seyon! 🦖💨'};
  const lose=k=>CH.P[k].out?T.caught(k):`${k} was safe too, just a little later! 😅`;
  let body;
- if(w)body=`<svg viewBox="0 0 320 210" style="width:min(300px,80%);display:block;margin:0 auto">${KD(w,w==='Nithila'?'frock':'cape',130,152,'laugh',false,KIDS[w].s*.75)}<text x="250" y="120" font-size="60" text-anchor="middle">🏆</text><text x="252" y="185" font-size="40" text-anchor="middle">${T.ico}💤</text></svg>
+ if(w)body=`<svg viewBox="0 0 320 210" style="width:min(300px,80%);display:block;margin:0 auto">${KD(w,AV[w].fit.play,130,152,'laugh',false,KIDS[w].s*.75)}<text x="250" y="120" font-size="60" text-anchor="middle">🏆</text><text x="252" y="185" font-size="40" text-anchor="middle">${T.ico}💤</text></svg>
   <h3>${w} escaped ${T.cname} and won! 🏁</h3><div class="pts">⏱️ ${t} seconds</div><div style="font-size:17px;line-height:1.45"><b>${w}:</b> ${lines[w]}<br>${lose(other(w))}</div>`;
- else body=`<div style="font-size:80px;line-height:1">${T.ico}😋</div><h3>${T.cname} caught everyone!</h3><div style="font-size:17px;line-height:1.45">${T.caught('Nithila')}<br>${T.caught('Seyon')}</div><div class="pts">Rematch? Run faster this time! 💪</div>`;
+ else body=`<div style="font-size:80px;line-height:1">${T.ico}😋</div><h3>${T.cname} caught everyone!</h3><div style="font-size:17px;line-height:1.45">${T.caught(PL[0])}<br>${T.caught(PL[1])}</div><div class="pts">Rematch? Run faster this time! 💪</div>`;
  $('#sheetCard').innerHTML=body+`<div style="margin:8px 0;font-size:16px;color:#6b5f86">Phew! Everyone gets an Amma hug 🤗 and a high-five ✋</div>
- <div class="score" style="color:#2b2140">🏆 Family scoreboard: 👧 Nithila ${WINS.Nithila} · 👦 Seyon ${WINS.Seyon}</div>
+ <div class="score" style="color:#2b2140">${famScore()}</div>
  <div class="row"><button class="btn" onclick="closeSheet();setupChase()">🔁 Rematch</button><button class="btn purple" onclick="leaveChase()">🧟 Other chases</button></div>`;
  $('#sheet').classList.add('on');setTimeout(()=>{if(!$('#chase').classList.contains('on'))return;CH.loop=false},400)}
 
-const CKEYS={a:['Nithila','R'],d:['Nithila','R'],w:['Nithila','J'],s:['Nithila','J'],arrowleft:['Seyon','R'],arrowright:['Seyon','R'],arrowup:['Seyon','J'],arrowdown:['Seyon','J'],' ':[null,'J']};
+const CKEYS={a:[0,'R'],d:[0,'R'],w:[0,'J'],s:[0,'J'],arrowleft:[1,'R'],arrowright:[1,'R'],arrowup:[1,'J'],arrowdown:[1,'J'],' ':[null,'J']};
 document.addEventListener('keydown',e=>{if(!$('#chase').classList.contains('on')||e.repeat)return;const m=CKEYS[e.key.toLowerCase()];if(!m)return;e.preventDefault();
- let [k,a]=m;if(!k){if(!CH.cpu)return;k=other(CH.cpu)}if(CH.cpu===k)k=other(k);if(a==='R')cTap(k);else cJump(k)});
+ let k=m[0]===null?null:PL[m[0]],a=m[1];if(!k){if(!CH.cpu)return;k=other(CH.cpu)}if(CH.cpu===k)k=other(k);if(a==='R')cTap(k);else cJump(k)});
 
 buildParents();titleArt();
 </script>
